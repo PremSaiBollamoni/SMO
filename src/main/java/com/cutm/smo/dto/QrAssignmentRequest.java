@@ -1,0 +1,86 @@
+package com.cutm.smo.dto;
+
+public class QrAssignmentRequest {
+    private String processPlanNumber;
+    private String qrCode;
+    private String style;
+    private String size;
+    private String gtgNumber;
+    private String btnNumber;
+    private String label;
+    private String nextOperation;
+    private Integer trayQuantity;
+
+    // Getters and Setters
+    public String getProcessPlanNumber() {
+        return processPlanNumber;
+    }
+
+    public void setProcessPlanNumber(String processPlanNumber) {
+        this.processPlanNumber = processPlanNumber;
+    }
+
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getGtgNumber() {
+        return gtgNumber;
+    }
+
+    public void setGtgNumber(String gtgNumber) {
+        this.gtgNumber = gtgNumber;
+    }
+
+    public String getBtnNumber() {
+        return btnNumber;
+    }
+
+    public void setBtnNumber(String btnNumber) {
+        this.btnNumber = btnNumber;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getNextOperation() {
+        return nextOperation;
+    }
+
+    public void setNextOperation(String nextOperation) {
+        this.nextOperation = nextOperation;
+    }
+
+    public Integer getTrayQuantity() {
+        return trayQuantity;
+    }
+
+    public void setTrayQuantity(Integer trayQuantity) {
+        this.trayQuantity = trayQuantity;
+    }
+}

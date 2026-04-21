@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Spring Boot default configuration -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- Define log file paths -->
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <property name="LOG_DIR" value="logs"/>
+
+    <!-- Console Appender - Only INFO and above -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <immediateFlush>true</immediateFlush>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender for All Logs -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/smo-application.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/smo-application-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- File Appender for Database Logs -->
+    <appender name="DB_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/smo-database.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/smo-database-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- File Appender for API Logs -->
+    <appender name="API_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/smo-api.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/smo-api-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- File Appender for Error Logs -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/smo-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/smo-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Async Appender for better performance -->
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <!-- Logger for Database Operations - Disable verbose logging -->
+    <logger name="com.cutm.smo.config.DatabaseLoggingAspect" level="ERROR" additivity="false">
+        <appender-ref ref="DB_FILE"/>
+    </logger>
+
+    <!-- Logger for SQL Statements -->
+    <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <appender-ref ref="DB_FILE"/>
+    </logger>
+
+    <!-- Logger for SQL Parameters -->
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
+        <appender-ref ref="DB_FILE"/>
+    </logger>
+
+    <!-- Logger for Spring Data JPA -->
+    <logger name="org.springframework.data" level="DEBUG" additivity="false">
+        <appender-ref ref="DB_FILE"/>
+    </logger>
+
+    <!-- Logger for Controllers -->
+    <logger name="com.cutm.smo.controller" level="INFO" additivity="false">
+        <appender-ref ref="API_FILE"/>
+    </logger>
+
+    <!-- Logger for Services -->
+    <logger name="com.cutm.smo.services" level="INFO" additivity="false">
+        <appender-ref ref="API_FILE"/>
+    </logger>
+
+    <!-- Logger for Repositories -->
+    <logger name="com.cutm.smo.repositories" level="DEBUG" additivity="false">
+        <appender-ref ref="DB_FILE"/>
+    </logger>
+
+    <!-- Logger for Application -->
+    <logger name="com.cutm.smo" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <!-- Spring Framework Logging -->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.security" level="WARN"/>
+    <logger name="org.springframework.boot" level="WARN"/>
+    <logger name="org.springframework.data" level="WARN"/>
+
+    <!-- Hibernate Logging -->
+    <logger name="org.hibernate" level="WARN"/>
+
+    <!-- Root Logger - INFO for console, DEBUG for files -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </root>
+</configuration>
