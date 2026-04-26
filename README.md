@@ -91,6 +91,13 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Service information endpoints
 - Support for any local network (192.168.x.x, 10.x.x.x, 172.x.x.x)
 
+#### 9. **Interactive Workflow Monitoring**
+- Clickable workflow nodes for real-time production insights
+- Role-based node access control (GM and Supervisor only)
+- Live metrics: WIP counts, active jobs, daily completion stats
+- Node metrics endpoint with auto-refresh capabilities
+- Strategic monitoring for GM, floor-level monitoring for Supervisor
+
 ---
 
 ## 🏛️ Architecture
@@ -267,6 +274,13 @@ GET    /api/insights/gm                       # GM insights (pending/approved pl
 GET    /api/health                            # Health check endpoint
 GET    /api/discovery/info                    # Service discovery info
 GET    /api/discovery/ping                    # Service discovery ping
+```
+
+#### Node Metrics & Monitoring
+```http
+GET    /api/processplan/node-metrics          # Real-time node metrics
+       ?routingId={id}&operationId={id}&actorEmpId={id}
+       # Returns: WIP count, active jobs, daily completions
 ```
 
 ### Response Format

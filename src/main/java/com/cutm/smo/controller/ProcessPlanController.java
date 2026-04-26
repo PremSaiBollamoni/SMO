@@ -7,6 +7,8 @@ import com.cutm.smo.services.NodeMetricsService;
 import com.cutm.smo.services.ProcessPlanService;
 import com.cutm.smo.util.LoggingUtil;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -240,7 +242,21 @@ public class ProcessPlanController {
             @RequestParam Long routingId,
             @RequestParam Long operationId,
             @RequestParam String actorEmpId) {
-        accessControlService.require(actorEmpId, "PP_VIEW_NODE_METRICS");
+        // Check if user has any of the allowed activities for node metrics
+        try {
+            accessControlService.require(actorEmpId, "PP_VIEW_NODE_METRICS");
+        } catch (ResponseStatusException e1) {
+            try {
+                accessControlService.require(actorEmpId, "PP_APPROVE"); // GM approval activity
+            } catch (ResponseStatusException e2) {
+                try {
+                    accessControlService.require(actorEmpId, "SUPERVISOR_MONITOR_WIP"); // Supervisor WIP monitoring
+                } catch (ResponseStatusException e3) {
+                    throw new ResponseStatusException(HttpStatus.FORBIDDEN, 
+                        "Access denied: Requires PP_VIEW_NODE_METRICS, PP_APPROVE, or SUPERVISOR_MONITOR_WIP activity");
+                }
+            }
+        }
         return nodeMetricsService.getNodeMetrics(routingId, operationId);
     }
 }
