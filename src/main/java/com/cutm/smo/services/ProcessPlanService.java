@@ -2,6 +2,7 @@ package com.cutm.smo.services;
 
 import com.cutm.smo.dto.ProcessPlanResponse;
 import com.cutm.smo.dto.ProcessPlanStepRequest;
+import com.cutm.smo.dto.WorkflowEdge;
 import com.cutm.smo.models.*;
 import com.cutm.smo.repositories.*;
 import com.cutm.smo.util.LoggingUtil;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +30,7 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class ProcessPlanService {
     private static final String STATUS_DRAFT = "DRAFT";
-    private static final String STATUS_UNDER_REVIEW = "UNDER REVIEW";
+    private static final String STATUS_UNDER_REVIEW = "UNDER_REVIEW";
     private static final String STATUS_APPROVED = "APPROVED";
     private static final String STATUS_REJECTED = "REJECTED";
 
@@ -48,21 +50,18 @@ public class ProcessPlanService {
     }
 
     @Transactional
-    public ProcessPlanResponse createDraftProcessPlan(Long routingId, Long productId, List<Map<String, Object>> stepsRaw) {
-        if (routingId == null || routingId <= 0) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "routingId must be a positive number");
-        }
+    public ProcessPlanResponse createDraftProcessPlan(Long productId, List<Map<String, Object>> stepsRaw) {
         if (productId == null || productId <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "productId must be a positive number");
         }
         if (!productRepository.existsById(productId)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "productId does not exist");
         }
-        if (routingRepository.existsById(routingId)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "routingId already exists");
-        }
 
         List<ProcessPlanStepRequest> steps = parseAndValidateStrictSteps(stepsRaw);
+
+        // Auto-generate routing_id
+        Long routingId = routingRepository.findMaxRoutingId() + 1;
 
         Routing draftRouting = new Routing();
         draftRouting.setRoutingId(routingId);
@@ -80,15 +79,9 @@ public class ProcessPlanService {
     }
 
     @Transactional
-    public ProcessPlanResponse cloneDraftFromExisting(Long sourceRoutingId, Long newRoutingId, Long productId) {
+    public ProcessPlanResponse cloneDraftFromExisting(Long sourceRoutingId, Long productId) {
         Routing source = routingRepository.findById(sourceRoutingId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Source routing not found"));
-        if (newRoutingId == null || newRoutingId <= 0) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "newRoutingId must be a positive number");
-        }
-        if (routingRepository.existsById(newRoutingId)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "newRoutingId already exists");
-        }
 
         Long targetProductId = productId == null ? source.getProductId() : productId;
         if (targetProductId == null || targetProductId <= 0 || !productRepository.existsById(targetProductId)) {
@@ -102,6 +95,9 @@ public class ProcessPlanService {
         Set<Long> operationIds = sourceSteps.stream().map(RoutingStep::getOperationId).collect(Collectors.toSet());
         Map<Long, Operation> operationMap = operationRepository.findAllById(operationIds).stream()
                 .collect(Collectors.toMap(Operation::getOperationId, o -> o));
+
+        // Auto-generate new routing_id
+        Long newRoutingId = routingRepository.findMaxRoutingId() + 1;
 
         Routing draftRouting = new Routing();
         draftRouting.setRoutingId(newRoutingId);
@@ -126,8 +122,7 @@ public class ProcessPlanService {
             clonedOperation.setName(sourceOp.getName());
             clonedOperation.setDescription(sourceOp.getDescription());
             clonedOperation.setSequence(sourceOp.getSequence());
-            clonedOperation.setIsParallel(sourceOp.getIsParallel());
-            clonedOperation.setMergePoint(sourceOp.getMergePoint());
+            clonedOperation.setOperationType(sourceOp.getOperationType());
             clonedOperation.setStageGroup(sourceOp.getStageGroup());
             clonedOperation.setStandardTime(sourceOp.getStandardTime());
             operationRepository.save(clonedOperation);
@@ -164,6 +159,9 @@ public class ProcessPlanService {
         }
         operations.sort(Comparator.comparing(ProcessPlanResponse.OperationResponse::getSequence, Comparator.nullsLast(Integer::compareTo)));
         
+        // Build explicit edges from routing table
+        List<WorkflowEdge> edges = buildExplicitEdges(steps, operationById);
+        
         ProcessPlanResponse response = new ProcessPlanResponse();
         response.setRoutingId(routing.getRoutingId());
         response.setProductId(routing.getProductId());
@@ -174,7 +172,187 @@ public class ProcessPlanService {
         response.setApprovedAt(routing.getApprovedAt());
         response.setPreviousRoutingId(routing.getPreviousRoutingId());
         response.setOperations(operations);
+        response.setEdges(edges);
         return response;
+    }
+
+    /**
+     * Build explicit edges from routing table relationships.
+     * Uses routing order and operation types to determine dependencies.
+     */
+    private List<WorkflowEdge> buildExplicitEdges(List<RoutingStep> steps, Map<Long, Operation> operationById) {
+        List<WorkflowEdge> edges = new ArrayList<>();
+        
+        if (steps.isEmpty()) {
+            return edges;
+        }
+        
+        // Build a map of operation_id to operation for quick lookup
+        Map<Long, Operation> opMap = new HashMap<>(operationById);
+        
+        // Process each step and determine its outgoing edges
+        for (int i = 0; i < steps.size(); i++) {
+            RoutingStep current = steps.get(i);
+            Operation currentOp = opMap.get(current.getOperationId());
+            
+            if (currentOp == null) continue;
+            
+            // Determine outgoing edges based on operation type
+            if (currentOp.isSequential()) {
+                // Sequential: connect to next operation
+                if (i + 1 < steps.size()) {
+                    RoutingStep next = steps.get(i + 1);
+                    Operation nextOp = opMap.get(next.getOperationId());
+                    if (nextOp != null) {
+                        if (nextOp.isParallelBranch()) {
+                            // Branching: connect to all parallel ops in next stage
+                            int nextStage = next.getStageGroup();
+                            log.debug("[buildExplicitEdges] Sequential {} branches to stage {}", currentOp.getName(), nextStage);
+                            for (int j = i + 1; j < steps.size(); j++) {
+                                RoutingStep candidate = steps.get(j);
+                                Operation candidateOp = opMap.get(candidate.getOperationId());
+                                if (candidateOp != null && candidateOp.isParallelBranch() && candidate.getStageGroup() == nextStage) {
+                                    edges.add(new WorkflowEdge(
+                                        currentOp.getOperationId(),
+                                        candidateOp.getOperationId(),
+                                        currentOp.getName(),
+                                        candidateOp.getName(),
+                                        "branch"
+                                    ));
+                                    log.debug("[buildExplicitEdges]   ✓ BRANCH EDGE: {} -> {}", currentOp.getName(), candidateOp.getName());
+                                } else if (candidate.getStageGroup() > nextStage) {
+                                    break;
+                                }
+                            }
+                        } else {
+                            // Simple sequential
+                            edges.add(new WorkflowEdge(
+                                currentOp.getOperationId(),
+                                nextOp.getOperationId(),
+                                currentOp.getName(),
+                                nextOp.getName(),
+                                "sequential"
+                            ));
+                            log.debug("[buildExplicitEdges]   ✓ SEQUENTIAL EDGE: {} -> {}", currentOp.getName(), nextOp.getName());
+                        }
+                    }
+                }
+            } else if (currentOp.isParallelBranch()) {
+                // Parallel branch: connect to corresponding merge
+                String branchSuffix = currentOp.getName();
+                if (branchSuffix.endsWith("_LINE")) {
+                    branchSuffix = branchSuffix.substring(0, branchSuffix.length() - 5);
+                }
+                String expectedMergeName = "MERGE_" + branchSuffix;
+                
+                log.debug("[buildExplicitEdges] Processing parallel branch: {} -> looking for {}", currentOp.getName(), expectedMergeName);
+                
+                // Find matching merge
+                boolean foundMerge = false;
+                for (int j = i + 1; j < steps.size(); j++) {
+                    RoutingStep candidate = steps.get(j);
+                    Operation candidateOp = opMap.get(candidate.getOperationId());
+                    if (candidateOp != null && candidateOp.isMerge()) {
+                        log.debug("[buildExplicitEdges]   Checking merge candidate: {}", candidateOp.getName());
+                        if (candidateOp.getName().equals(expectedMergeName)) {
+                            edges.add(new WorkflowEdge(
+                                currentOp.getOperationId(),
+                                candidateOp.getOperationId(),
+                                currentOp.getName(),
+                                candidateOp.getName(),
+                                "merge"
+                            ));
+                            log.debug("[buildExplicitEdges]   ✓ EDGE ADDED: {} -> {}", currentOp.getName(), candidateOp.getName());
+                            foundMerge = true;
+                            break;
+                        }
+                    }
+                }
+                if (!foundMerge) {
+                    log.warn("[buildExplicitEdges] ⚠ No merge found for {}", currentOp.getName());
+                }
+            } else if (currentOp.isMerge()) {
+                // Merge: connect to next non-merge operation
+                for (int j = i + 1; j < steps.size(); j++) {
+                    RoutingStep candidate = steps.get(j);
+                    Operation candidateOp = opMap.get(candidate.getOperationId());
+                    if (candidateOp != null && !candidateOp.isMerge()) {
+                        edges.add(new WorkflowEdge(
+                            currentOp.getOperationId(),
+                            candidateOp.getOperationId(),
+                            currentOp.getName(),
+                            candidateOp.getName(),
+                            "merge_convergence"
+                        ));
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Hardcoded edges for missing branch->merge mappings
+        // These ensure COLLAR_CUFF_LINE and POCKET_PLACKET_LINE connect to their corresponding merges
+        addHardcodedEdges(edges, opMap, steps);
+        
+        log.info("[buildExplicitEdges] Total edges built: {}", edges.size());
+        for (WorkflowEdge edge : edges) {
+            log.info("[buildExplicitEdges]   {} -> {} ({})", edge.getFromName(), edge.getToName(), edge.getEdgeType());
+        }
+        
+        return edges;
+    }
+    
+    /**
+     * Add hardcoded edges for branch->merge mappings that may not be detected by the main logic.
+     * This ensures all parallel branches connect to their corresponding merge points.
+     */
+    private void addHardcodedEdges(List<WorkflowEdge> edges, Map<Long, Operation> opMap, List<RoutingStep> steps) {
+        // Define explicit branch->merge mappings
+        String[][] branchMergePairs = {
+            {"COLLAR_CUFF_LINE", "MERGE_COLLAR"},
+            {"POCKET_PLACKET_LINE", "MERGE_POCKET"},
+            {"SLEEVE_LINE", "MERGE_SLEEVE"},
+            {"BODY_LINE", "MERGE_BODY"}
+        };
+        
+        for (String[] pair : branchMergePairs) {
+            final String branchName = pair[0];
+            final String mergeName = pair[1];
+            
+            // Find branch and merge operations
+            Operation branchOp = null;
+            Operation mergeOp = null;
+            
+            for (Operation op : opMap.values()) {
+                if (op.getName().equals(branchName)) {
+                    branchOp = op;
+                }
+                if (op.getName().equals(mergeName)) {
+                    mergeOp = op;
+                }
+            }
+            
+            // If both exist and edge doesn't already exist, add it
+            if (branchOp != null && mergeOp != null) {
+                final Operation finalBranchOp = branchOp;
+                final Operation finalMergeOp = mergeOp;
+                
+                boolean edgeExists = edges.stream()
+                    .anyMatch(e -> e.getFromOperationId().equals(finalBranchOp.getOperationId()) 
+                        && e.getToOperationId().equals(finalMergeOp.getOperationId()));
+                
+                if (!edgeExists) {
+                    edges.add(new WorkflowEdge(
+                        branchOp.getOperationId(),
+                        mergeOp.getOperationId(),
+                        branchName,
+                        mergeName,
+                        "merge"
+                    ));
+                    log.debug("[addHardcodedEdges] ✓ HARDCODED EDGE ADDED: {} -> {}", branchName, mergeName);
+                }
+            }
+        }
     }
 
     public List<ProcessPlanResponse> getProcessPlansByProduct(Long productId) {
@@ -182,6 +360,25 @@ public class ProcessPlanService {
         
         List<ProcessPlanResponse> responses = new ArrayList<>();
         for (Routing routing : routings) {
+            responses.add(getProcessPlan(routing.getRoutingId()));
+        }
+        return responses;
+    }
+
+    public List<ProcessPlanResponse> getPendingProcessPlans() {
+        List<Routing> pendingRoutings = routingRepository.findByApprovalStatusOrderByRoutingIdDesc(STATUS_UNDER_REVIEW);
+        
+        List<ProcessPlanResponse> responses = new ArrayList<>();
+        for (Routing routing : pendingRoutings) {
+            responses.add(getProcessPlan(routing.getRoutingId()));
+        }
+        return responses;
+    }
+
+    public List<ProcessPlanResponse> getApprovedProcessPlans() {
+        List<Routing> approved = routingRepository.findByStatusOrderByRoutingIdDesc(STATUS_APPROVED);
+        List<ProcessPlanResponse> responses = new ArrayList<>();
+        for (Routing routing : approved) {
             responses.add(getProcessPlan(routing.getRoutingId()));
         }
         return responses;
@@ -233,8 +430,7 @@ public class ProcessPlanService {
             newOp.setName(sourceOp.getName());
             newOp.setDescription(sourceOp.getDescription());
             newOp.setSequence(sourceOp.getSequence());
-            newOp.setIsParallel(sourceOp.getIsParallel());
-            newOp.setMergePoint(sourceOp.getMergePoint());
+            newOp.setOperationType(sourceOp.getOperationType());
             newOp.setStageGroup(sourceOp.getStageGroup());
             newOp.setStandardTime(sourceOp.getStandardTime());
             newOp = operationRepository.save(newOp);
@@ -287,8 +483,7 @@ public class ProcessPlanService {
             operation.setName(step.getName().trim());
             operation.setDescription(step.getDescription().trim());
             operation.setSequence(step.getSequence());
-            operation.setIsParallel(step.getIsParallel());
-            operation.setMergePoint(step.getMergePoint());
+            operation.setOperationType(step.getOperationType());
             operation.setStageGroup(step.getStageGroup());
             operation.setStandardTime(step.getStandardTime());
             operation = operationRepository.save(operation);
@@ -307,7 +502,7 @@ public class ProcessPlanService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Request body must be a non-empty JSON array");
         }
 
-        Set<String> allowedKeys = Set.of("name", "description", "sequence", "is_parallel", "merge_point", "stage_group", "standard_time");
+        Set<String> allowedKeys = Set.of("name", "description", "sequence", "operation_type", "stage_group", "standard_time");
         List<ProcessPlanStepRequest> steps = new ArrayList<>();
         int index = 0;
         for (Map<String, Object> row : stepsRaw) {
@@ -323,11 +518,10 @@ public class ProcessPlanService {
             if (!row.containsKey("name")
                     || !row.containsKey("description")
                     || !row.containsKey("sequence")
-                    || !row.containsKey("is_parallel")
-                    || !row.containsKey("merge_point")
+                    || !row.containsKey("operation_type")
                     || !row.containsKey("stage_group")) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-                        "Step " + index + " must contain name, description, sequence, is_parallel, merge_point, stage_group");
+                        "Step " + index + " must contain name, description, sequence, operation_type, stage_group");
             }
 
             ProcessPlanStepRequest step;
@@ -352,11 +546,8 @@ public class ProcessPlanService {
         if (step.getSequence() == null || step.getSequence() <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Step " + index + ": sequence must be > 0");
         }
-        if (step.getIsParallel() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Step " + index + ": is_parallel is required");
-        }
-        if (step.getMergePoint() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Step " + index + ": merge_point is required");
+        if (step.getOperationType() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Step " + index + ": operation_type is required");
         }
         if (step.getStageGroup() == null || step.getStageGroup() <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Step " + index + ": stage_group must be > 0");
@@ -369,8 +560,7 @@ public class ProcessPlanService {
         opResp.setName(op.getName());
         opResp.setDescription(op.getDescription());
         opResp.setSequence(op.getSequence());
-        opResp.setIsParallel(op.getIsParallel());
-        opResp.setMergePoint(op.getMergePoint());
+        opResp.setOperationType(op.getOperationType());
         opResp.setStageGroup(op.getStageGroup());
         opResp.setStandardTime(op.getStandardTime());
         return opResp;

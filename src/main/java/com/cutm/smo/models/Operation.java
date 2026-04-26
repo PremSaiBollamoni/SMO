@@ -1,34 +1,53 @@
 package com.cutm.smo.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "operation")
 public class Operation {
     @Id
-    @Column(name = "operation_id") private Long operationId;
-    @Column(name = "name") private String name;
-    @Column(name = "description") private String description;
-    @Column(name = "sequence") private Integer sequence;
-    @Column(name = "is_parallel") private Boolean isParallel;
-    @Column(name = "merge_point") private Boolean mergePoint;
-    @Column(name = "stage_group") private Integer stageGroup;
-    @Column(name = "standard_time") private Integer standardTime;
+    @Column(name = "operation_id")
+    private Long operationId;
 
-    public Long getOperationId() { return operationId; }
-    public void setOperationId(Long operationId) { this.operationId = operationId; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public Integer getSequence() { return sequence; }
-    public void setSequence(Integer sequence) { this.sequence = sequence; }
-    public Boolean getIsParallel() { return isParallel; }
-    public void setIsParallel(Boolean isParallel) { this.isParallel = isParallel; }
-    public Boolean getMergePoint() { return mergePoint; }
-    public void setMergePoint(Boolean mergePoint) { this.mergePoint = mergePoint; }
-    public Integer getStageGroup() { return stageGroup; }
-    public void setStageGroup(Integer stageGroup) { this.stageGroup = stageGroup; }
-    public Integer getStandardTime() { return standardTime; }
-    public void setStandardTime(Integer standardTime) { this.standardTime = standardTime; }
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "sequence")
+    private Integer sequence;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "operation_type", nullable = false, columnDefinition = "VARCHAR(50) DEFAULT 'SEQUENTIAL'")
+    private OperationType operationType = OperationType.SEQUENTIAL;
+
+    @Column(name = "stage_group")
+    private Integer stageGroup;
+
+    @Column(name = "standard_time")
+    private Integer standardTime;
+
+    /**
+     * Convenience method: Check if this is a parallel branch operation
+     */
+    public boolean isParallelBranch() {
+        return operationType == OperationType.PARALLEL_BRANCH;
+    }
+
+    /**
+     * Convenience method: Check if this is a merge operation
+     */
+    public boolean isMerge() {
+        return operationType == OperationType.MERGE;
+    }
+
+    /**
+     * Convenience method: Check if this is a sequential operation
+     */
+    public boolean isSequential() {
+        return operationType == OperationType.SEQUENTIAL;
+    }
 }
