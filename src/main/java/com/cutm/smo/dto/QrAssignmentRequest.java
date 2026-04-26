@@ -10,6 +10,8 @@ public class QrAssignmentRequest {
     private String label;
     private String nextOperation;
     private Integer trayQuantity;
+    private Long supervisorId; // Added for enhanced workflow
+    private String notes; // Added for enhanced workflow
 
     // Getters and Setters
     public String getProcessPlanNumber() {
@@ -82,5 +84,21 @@ public class QrAssignmentRequest {
 
     public void setTrayQuantity(Integer trayQuantity) {
         this.trayQuantity = trayQuantity;
+    }
+
+    public Long getSupervisorId() {
+        return supervisorId;
+    }
+
+    public void setSupervisorId(Long supervisorId) {
+        this.supervisorId = supervisorId;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

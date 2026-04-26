@@ -5,6 +5,8 @@ public class MergingRequest {
     private String tub1Description;
     private String tub2Qr;
     private String tub2Description;
+    private Long supervisorId; // Added for enhanced workflow
+    private String notes; // Added for enhanced workflow
 
     // Getters and Setters
     public String getTub1Qr() {
@@ -37,5 +39,21 @@ public class MergingRequest {
 
     public void setTub2Description(String tub2Description) {
         this.tub2Description = tub2Description;
+    }
+
+    public Long getSupervisorId() {
+        return supervisorId;
+    }
+
+    public void setSupervisorId(Long supervisorId) {
+        this.supervisorId = supervisorId;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

@@ -1,15 +1,14 @@
 package com.cutm.smo.dto;
 
+import com.cutm.smo.models.OperationType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ProcessPlanStepRequest {
     private String name;
     private String description;
     private Integer sequence;
-    @JsonProperty("is_parallel")
-    private Boolean isParallel;
-    @JsonProperty("merge_point")
-    private Boolean mergePoint;
+    @JsonProperty("operation_type")
+    private OperationType operationType;
     @JsonProperty("stage_group")
     private Integer stageGroup;
     @JsonProperty("standard_time")
@@ -21,10 +20,8 @@ public class ProcessPlanStepRequest {
     public void setDescription(String description) { this.description = description; }
     public Integer getSequence() { return sequence; }
     public void setSequence(Integer sequence) { this.sequence = sequence; }
-    public Boolean getIsParallel() { return isParallel; }
-    public void setIsParallel(Boolean isParallel) { this.isParallel = isParallel; }
-    public Boolean getMergePoint() { return mergePoint; }
-    public void setMergePoint(Boolean mergePoint) { this.mergePoint = mergePoint; }
+    public OperationType getOperationType() { return operationType; }
+    public void setOperationType(OperationType operationType) { this.operationType = operationType; }
     public Integer getStageGroup() { return stageGroup; }
     public void setStageGroup(Integer stageGroup) { this.stageGroup = stageGroup; }
     public Integer getStandardTime() { return standardTime; }

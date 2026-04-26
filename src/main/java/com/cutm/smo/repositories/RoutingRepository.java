@@ -17,4 +17,8 @@ public interface RoutingRepository extends JpaRepository<Routing, Long> {
     Integer findMaxVersionByProductId(@Param("productId") Long productId);
 
     List<Routing> findByProductIdOrderByRoutingIdDesc(Long productId);
+    
+    List<Routing> findByApprovalStatusOrderByRoutingIdDesc(String approvalStatus);
+
+    List<Routing> findByStatusOrderByRoutingIdDesc(String status);
 }

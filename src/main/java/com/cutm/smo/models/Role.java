@@ -1,11 +1,9 @@
 package com.cutm.smo.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(
         name = "role",
@@ -14,7 +12,6 @@ import jakarta.persistence.UniqueConstraint;
         }
 )
 public class Role {
-
     @Id
     @Column(name = "role_id", nullable = false)
     private Long roleId;
@@ -27,36 +24,4 @@ public class Role {
 
     @Column(name = "status", nullable = false, length = 50)
     private String status;
-
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getActivity() {
-        return activity;
-    }
-
-    public void setActivity(String activity) {
-        this.activity = activity;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

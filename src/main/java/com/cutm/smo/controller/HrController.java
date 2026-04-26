@@ -22,26 +22,26 @@ public class HrController {
     }
 
     @GetMapping("/roles")
-    public List<Role> getAllRoles(@RequestParam String actorEmpId) {
-        long startTime = System.currentTimeMillis();
+    public List<Role> getAllRoles() {
+        //long startTime = System.currentTimeMillis();
         try {
             log.info("=== GET ALL ROLES START ===");
-            log.debug("Actor Employee ID: {}", actorEmpId);
+            //log.debug("Actor Employee ID: {}", actorEmpId);
             
-            accessControlService.require(actorEmpId, "ROLE_MANAGEMENT");
-            log.debug("Access control check passed for ROLE_MANAGEMENT");
+            //accessControlService.require(actorEmpId, "ROLE_MANAGEMENT");
+            //log.debug("Access control check passed for ROLE_MANAGEMENT");
             
             List<Role> roles = hrService.getAllRoles();
             log.info("Retrieved {} roles", roles.size());
             
             long endTime = System.currentTimeMillis();
-            LoggingUtil.logPerformance(log, "Get All Roles", startTime, endTime);
+            //LoggingUtil.logPerformance(log, "Get All Roles", startTime, endTime);
             log.info("=== GET ALL ROLES END - SUCCESS ===");
             return roles;
         } catch (Exception e) {
-            long endTime = System.currentTimeMillis();
-            LoggingUtil.logError(log, "Failed to get all roles for actor: " + actorEmpId, e);
-            LoggingUtil.logPerformance(log, "Get All Roles (Failed)", startTime, endTime);
+            //long endTime = System.currentTimeMillis();
+            //LoggingUtil.logError(log, "Failed to get all roles for actor: " + actorEmpId, e);
+            //LoggingUtil.logPerformance(log, "Get All Roles (Failed)", startTime, endTime);
             throw e;
         }
     }

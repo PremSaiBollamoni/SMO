@@ -1,7 +1,9 @@
 package com.cutm.smo.controller;
 
+import com.cutm.smo.dto.NodeMetricsResponse;
 import com.cutm.smo.dto.ProcessPlanResponse;
 import com.cutm.smo.services.AccessControlService;
+import com.cutm.smo.services.NodeMetricsService;
 import com.cutm.smo.services.ProcessPlanService;
 import com.cutm.smo.util.LoggingUtil;
 import org.springframework.web.bind.annotation.*;
@@ -17,15 +19,16 @@ import java.util.Map;
 public class ProcessPlanController {
     private final ProcessPlanService processPlanService;
     private final AccessControlService accessControlService;
+    private final NodeMetricsService nodeMetricsService;
 
-    public ProcessPlanController(ProcessPlanService processPlanService, AccessControlService accessControlService) {
+    public ProcessPlanController(ProcessPlanService processPlanService, AccessControlService accessControlService, NodeMetricsService nodeMetricsService) {
         this.processPlanService = processPlanService;
         this.accessControlService = accessControlService;
+        this.nodeMetricsService = nodeMetricsService;
     }
 
-    @PostMapping("/{routingId}/draft")
+    @PostMapping("/draft")
     public ProcessPlanResponse createDraftProcessPlan(
-            @PathVariable Long routingId,
             @RequestParam(required = false, defaultValue = "SYSTEM") String actorEmpId,
             @RequestParam Long productId,
             @RequestBody List<Map<String, Object>> steps) {
@@ -33,7 +36,6 @@ public class ProcessPlanController {
         try {
             log.info("=== CREATE DRAFT PROCESS PLAN START ===");
             log.debug("Actor Employee ID: {}", actorEmpId);
-            log.debug("Routing ID: {}", routingId);
             log.debug("Product ID: {}", productId);
             log.debug("Number of steps: {}", steps.size());
             
@@ -45,8 +47,8 @@ public class ProcessPlanController {
                 log.warn("Access control bypassed - actorEmpId not provided (using SYSTEM default)");
             }
             
-            ProcessPlanResponse response = processPlanService.createDraftProcessPlan(routingId, productId, steps);
-            log.info("Draft process plan created successfully");
+            ProcessPlanResponse response = processPlanService.createDraftProcessPlan(productId, steps);
+            log.info("Draft process plan created successfully with routing_id: {}", response.getRoutingId());
             
             long endTime = System.currentTimeMillis();
             LoggingUtil.logPerformance(log, "Create Draft Process Plan", startTime, endTime);
@@ -54,16 +56,15 @@ public class ProcessPlanController {
             return response;
         } catch (Exception e) {
             long endTime = System.currentTimeMillis();
-            LoggingUtil.logError(log, "Failed to create draft process plan for routing: " + routingId, e);
+            LoggingUtil.logError(log, "Failed to create draft process plan for product: " + productId, e);
             LoggingUtil.logPerformance(log, "Create Draft Process Plan (Failed)", startTime, endTime);
             throw e;
         }
     }
 
-    @PostMapping("/{sourceRoutingId}/clone/{newRoutingId}/draft")
+    @PostMapping("/{sourceRoutingId}/clone/draft")
     public ProcessPlanResponse cloneDraftFromExisting(
             @PathVariable Long sourceRoutingId,
-            @PathVariable Long newRoutingId,
             @RequestParam String actorEmpId,
             @RequestParam(required = false) Long productId) {
         long startTime = System.currentTimeMillis();
@@ -71,14 +72,13 @@ public class ProcessPlanController {
             log.info("=== CLONE DRAFT PROCESS PLAN START ===");
             log.debug("Actor Employee ID: {}", actorEmpId);
             log.debug("Source Routing ID: {}", sourceRoutingId);
-            log.debug("New Routing ID: {}", newRoutingId);
             log.debug("Product ID: {}", productId);
             
             accessControlService.require(actorEmpId, "PP_SUBMIT");
             log.debug("Access control check passed for PP_SUBMIT");
             
-            ProcessPlanResponse response = processPlanService.cloneDraftFromExisting(sourceRoutingId, newRoutingId, productId);
-            log.info("Draft process plan cloned successfully");
+            ProcessPlanResponse response = processPlanService.cloneDraftFromExisting(sourceRoutingId, productId);
+            log.info("Draft process plan cloned successfully with new routing_id: {}", response.getRoutingId());
             
             long endTime = System.currentTimeMillis();
             LoggingUtil.logPerformance(log, "Clone Draft Process Plan", startTime, endTime);
@@ -202,5 +202,45 @@ public class ProcessPlanController {
             LoggingUtil.logPerformance(log, "Reject Process Plan (Failed)", startTime, endTime);
             throw e;
         }
+    }
+
+    @GetMapping("/pending")
+    public List<ProcessPlanResponse> getPendingProcessPlans(@RequestParam String actorEmpId) {
+        long startTime = System.currentTimeMillis();
+        try {
+            log.info("=== GET PENDING PROCESS PLANS START ===");
+            log.debug("Actor Employee ID: {}", actorEmpId);
+            
+            accessControlService.require(actorEmpId, "PP_APPROVE");
+            log.debug("Access control check passed for PP_APPROVE");
+            
+            List<ProcessPlanResponse> responses = processPlanService.getPendingProcessPlans();
+            log.info("Retrieved {} pending process plans", responses.size());
+            
+            long endTime = System.currentTimeMillis();
+            LoggingUtil.logPerformance(log, "Get Pending Process Plans", startTime, endTime);
+            log.info("=== GET PENDING PROCESS PLANS END - SUCCESS ===");
+            return responses;
+        } catch (Exception e) {
+            long endTime = System.currentTimeMillis();
+            LoggingUtil.logError(log, "Failed to get pending process plans", e);
+            LoggingUtil.logPerformance(log, "Get Pending Process Plans (Failed)", startTime, endTime);
+            throw e;
+        }
+    }
+
+    @GetMapping("/approved")
+    public List<ProcessPlanResponse> getApprovedProcessPlans(@RequestParam String actorEmpId) {
+        accessControlService.require(actorEmpId, "PP_VIEW_ALL");
+        return processPlanService.getApprovedProcessPlans();
+    }
+
+    @GetMapping("/node-metrics")
+    public NodeMetricsResponse getNodeMetrics(
+            @RequestParam Long routingId,
+            @RequestParam Long operationId,
+            @RequestParam String actorEmpId) {
+        accessControlService.require(actorEmpId, "PP_VIEW_NODE_METRICS");
+        return nodeMetricsService.getNodeMetrics(routingId, operationId);
     }
 }

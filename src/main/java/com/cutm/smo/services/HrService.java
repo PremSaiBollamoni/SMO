@@ -69,17 +69,7 @@ public class HrService {
         }
     }
 
-    public List<RoleDto> getRoles(String actorEmpId) {
-        requireAccess(actorEmpId, "ROLE_MANAGEMENT");
-        return roleRepository.findAll().stream().map(role -> {
-            RoleDto dto = new RoleDto();
-            dto.setRoleId(role.getRoleId().toString());
-            dto.setRoleName(role.getRoleName());
-            dto.setActivity(role.getActivity());
-            dto.setStatus(role.getStatus());
-            return dto;
-        }).toList();
-    }
+    
 
     public List<EmployeeDto> getEmployees(String actorEmpId) {
         requireAccess(actorEmpId, "EMPLOYEE_MANAGEMENT");

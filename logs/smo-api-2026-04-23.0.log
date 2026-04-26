@@ -1,0 +1,653 @@
+2026-04-23 12:14:53.125 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 12:14:53.136 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 12:14:53.141 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 12:14:53.142 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 12:14:53.142 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Duration: 11 ms
+2026-04-23 12:14:53.142 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 12:14:53.142 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 12:15:06.448 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 12:15:06.448 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 12:15:06.448 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1004
+2026-04-23 12:15:06.453 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1004",
+  "password": "shyam"
+}
+2026-04-23 12:15:06.453 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776926706453
+2026-04-23 12:15:06.460 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 12:15:06.460 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1004
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login ID: 1004
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776926706846
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 12:15:06.846 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Duration: 386 ms
+2026-04-23 12:15:06.847 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 12:15:06.847 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 12:15:06.847 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 12:15:06.847 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 12:15:06.847 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Supervisor",
+  "employeeName": "shyam",
+  "empId": "1004",
+  "activities": "SUPERVISOR_MONITOR_WIP,SUPERVISOR_LINE_BALANCING,SUPERVISOR_DETECT_BOTTLENECKS,SUPERVISOR_VIEW_OPERATOR_PERFORMANCE,SUPERVISOR_VIEW_AI_INSIGHTS,SUPERVISOR_REASSIGN_WORK,PROFILE_MANAGEMENT,SUPERVISOR_QR_ASSIGNMENT"
+}
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776926706848
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Duration: 399 ms
+2026-04-23 12:15:06.848 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 12:15:07.227 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS START ===
+2026-04-23 12:15:07.378 [http-nio-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE METRICS ===
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - Operation: Get Total WIP Records
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - Duration: 151 ms
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE END ===
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - Supervisor insights retrieved successfully
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - === PERFORMANCE METRICS ===
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - Operation: Get Supervisor Insights
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - Duration: 152 ms
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - === PERFORMANCE END ===
+2026-04-23 12:15:07.379 [http-nio-8080-exec-4] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS END - SUCCESS ===
+2026-04-23 14:07:19.464 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 14:07:19.466 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 14:07:19.473 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:19.473 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 14:07:19.473 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Duration: 2 ms
+2026-04-23 14:07:19.474 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 14:07:19.474 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 14:07:20.259 [http-nio-8080-exec-2] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-23 14:07:20.260 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-23 14:07:20.342 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-23 14:07:20.346 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-23 14:07:20.381 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID START ===
+2026-04-23 14:07:20.381 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-23 14:07:20.666 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-23 14:07:20.666 [http-nio-8080-exec-2] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-23 14:07:20.666 [http-nio-8080-exec-2] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-23 14:07:20.666 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-23 14:07:20.697 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-23 14:07:20.697 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-23 14:07:20.697 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.697 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.698 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-23 14:07:20.698 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-23 14:07:20.698 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Duration: 352 ms
+2026-04-23 14:07:20.698 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Duration: 316 ms
+2026-04-23 14:07:20.698 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-23 14:07:20.698 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-23 14:07:20.698 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-23 14:07:20.698 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Employee found: HR Admin
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Operation: Get Employee By ID
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Duration: 324 ms
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-23 14:07:20.705 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID END - SUCCESS ===
+2026-04-23 14:07:20.732 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Retrieved 4 employees
+2026-04-23 14:07:20.733 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.733 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-23 14:07:20.733 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Duration: 391 ms
+2026-04-23 14:07:20.733 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-23 14:07:20.733 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-23 14:07:20.762 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-23 14:07:20.763 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Duration: 12 ms
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-23 14:07:20.775 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Retrieved 4 employees
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Duration: 31 ms
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-23 14:07:20.793 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-23 14:07:30.113 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 14:07:30.113 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 14:07:30.113 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1004
+2026-04-23 14:07:30.126 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1004",
+  "password": "shyam"
+}
+2026-04-23 14:07:30.126 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776933450126
+2026-04-23 14:07:30.128 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 14:07:30.128 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1004
+2026-04-23 14:07:30.321 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Login ID: 1004
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776933450322
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - Duration: 193 ms
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 14:07:30.322 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Supervisor",
+  "employeeName": "shyam",
+  "empId": "1004",
+  "activities": "SUPERVISOR_MONITOR_WIP,SUPERVISOR_LINE_BALANCING,SUPERVISOR_DETECT_BOTTLENECKS,SUPERVISOR_VIEW_OPERATOR_PERFORMANCE,SUPERVISOR_VIEW_AI_INSIGHTS,SUPERVISOR_REASSIGN_WORK,PROFILE_MANAGEMENT,SUPERVISOR_QR_ASSIGNMENT"
+}
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776933450323
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - Duration: 209 ms
+2026-04-23 14:07:30.323 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 14:07:30.569 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS START ===
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE METRICS ===
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - Operation: Get Total WIP Records
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - Duration: 40 ms
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE END ===
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Supervisor insights retrieved successfully
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === PERFORMANCE METRICS ===
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Operation: Get Supervisor Insights
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Duration: 41 ms
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === PERFORMANCE END ===
+2026-04-23 14:07:30.610 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS END - SUCCESS ===
+2026-04-23 21:54:17.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 21:54:17.374 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 21:54:17.376 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:17.376 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 21:54:17.376 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 21:54:17.376 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 21:54:17.376 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 21:54:28.982 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 21:54:28.983 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 21:54:28.983 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1004
+2026-04-23 21:54:28.990 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1004",
+  "password": "shyam"
+}
+2026-04-23 21:54:28.990 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776961468990
+2026-04-23 21:54:29.012 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 21:54:29.012 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1004
+2026-04-23 21:54:29.296 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login ID: 1004
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776961469297
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Duration: 284 ms
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 21:54:29.297 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Supervisor",
+  "employeeName": "shyam",
+  "empId": "1004",
+  "activities": "SUPERVISOR_MONITOR_WIP,SUPERVISOR_LINE_BALANCING,SUPERVISOR_DETECT_BOTTLENECKS,SUPERVISOR_VIEW_OPERATOR_PERFORMANCE,SUPERVISOR_VIEW_AI_INSIGHTS,SUPERVISOR_REASSIGN_WORK,PROFILE_MANAGEMENT,SUPERVISOR_QR_ASSIGNMENT"
+}
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776961469298
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Duration: 315 ms
+2026-04-23 21:54:29.298 [http-nio-0.0.0.0-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 21:54:29.642 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS START ===
+2026-04-23 21:54:29.782 [http-nio-0.0.0.0-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE METRICS ===
+2026-04-23 21:54:29.782 [http-nio-0.0.0.0-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - Operation: Get Total WIP Records
+2026-04-23 21:54:29.782 [http-nio-0.0.0.0-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - Duration: 139 ms
+2026-04-23 21:54:29.782 [http-nio-0.0.0.0-8080-exec-4] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE END ===
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - Supervisor insights retrieved successfully
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - Operation: Get Supervisor Insights
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - Duration: 141 ms
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - === PERFORMANCE END ===
+2026-04-23 21:54:29.783 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS END - SUCCESS ===
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1002
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1002",
+  "password": "shankar"
+}
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776961483048
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 21:54:43.048 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1002
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Login ID: 1002
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776961483062
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Duration: 14 ms
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 21:54:43.062 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Process Planner",
+  "employeeName": "shankar",
+  "empId": "1002",
+  "activities": "PP_SUBMIT,PP_VIEW_ALL,PROFILE_MANAGEMENT"
+}
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776961483063
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Duration: 15 ms
+2026-04-23 21:54:43.063 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 21:54:43.250 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 21:54:43.253 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 21:54:43.254 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 21:54:43.262 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:43.263 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 21:54:43.263 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 8 ms
+2026-04-23 21:54:43.263 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 21:54:43.263 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 21:54:43.286 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:43.286 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 21:54:43.286 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Duration: 36 ms
+2026-04-23 21:54:43.286 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 21:54:43.286 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 21:54:43.297 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 21:54:43.298 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 21:54:43.298 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Duration: 44 ms
+2026-04-23 21:54:43.298 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 21:54:43.298 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:19:57.529 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - Duration: 3 ms
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:19:57.531 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:19:58.697 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:19:58.843 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:19:58.844 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:19:58.879 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:19:58.879 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:19:58.879 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Duration: 36 ms
+2026-04-23 22:19:58.879 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:19:58.879 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:19:58.885 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:19:58.885 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Duration: 188 ms
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Duration: 42 ms
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:19:58.886 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:25:50.088 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:25:50.089 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:25:50.089 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:25:50.090 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:25:50.090 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 22:25:50.090 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:25:50.090 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:25:51.498 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:25:51.500 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:25:51.500 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:25:51.522 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:25:51.522 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Duration: 25 ms
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Duration: 23 ms
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Duration: 22 ms
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:25:51.523 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - Duration: 0 ms
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:28:44.290 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:28:50.333 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:28:50.335 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:28:50.336 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Duration: 13 ms
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Duration: 11 ms
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:28:50.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:28:50.348 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:28:50.348 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:28:50.348 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Duration: 12 ms
+2026-04-23 22:28:50.348 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:28:50.348 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:29:05.764 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:29:05.764 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:29:05.764 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:29:05.765 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:29:05.765 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Duration: 0 ms
+2026-04-23 22:29:05.765 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:29:05.765 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:29:07.220 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:29:07.237 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Duration: 23 ms
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 6 ms
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:29:07.243 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:29:07.253 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:29:07.253 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:29:07.253 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Duration: 10 ms
+2026-04-23 22:29:07.253 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:29:07.254 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:31:31.402 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:31:31.403 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:31:31.403 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:31:31.403 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:31:31.403 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 22:31:31.404 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:31:31.404 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:31:32.772 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:31:32.778 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:31:32.780 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:31:32.881 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:31:32.881 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:31:32.881 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Duration: 103 ms
+2026-04-23 22:31:32.881 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:31:32.881 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:31:32.882 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:31:32.882 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:31:32.883 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Duration: 110 ms
+2026-04-23 22:31:32.883 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:31:32.883 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:31:32.884 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:31:32.884 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:31:32.884 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Duration: 104 ms
+2026-04-23 22:31:32.884 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:31:32.884 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:39:43.007 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:39:43.007 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:39:43.008 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:39:43.008 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:39:43.008 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 22:39:43.008 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:39:43.008 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:39:44.497 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:39:44.500 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:39:44.500 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Duration: 96 ms
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:39:44.593 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:39:44.594 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:39:44.594 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Duration: 93 ms
+2026-04-23 22:39:44.594 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:39:44.594 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:39:44.595 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:39:44.595 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:39:44.595 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Duration: 95 ms
+2026-04-23 22:39:44.595 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:39:44.595 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - Duration: 0 ms
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:43:03.804 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:43:05.351 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:43:05.355 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Duration: 3 ms
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Duration: 7 ms
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:43:05.358 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:43:05.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:43:05.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:43:05.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 15 ms
+2026-04-23 22:43:05.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:43:05.373 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - Duration: 0 ms
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:47:46.937 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:47:48.502 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:47:48.524 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:47:48.524 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:47:48.524 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - Duration: 22 ms
+2026-04-23 22:47:48.524 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:47:48.524 [http-nio-0.0.0.0-8080-exec-6] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:47:48.570 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:47:48.570 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:47:48.585 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:47:48.585 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:47:48.585 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Duration: 15 ms
+2026-04-23 22:47:48.585 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:47:48.585 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 22:47:48.614 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:47:48.614 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:47:48.614 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - Duration: 44 ms
+2026-04-23 22:47:48.614 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:47:48.614 [http-nio-0.0.0.0-8080-exec-4] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:51:32.285 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Duration: 12 ms
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 22:51:32.297 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 22:51:33.697 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 22:51:33.747 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:51:33.747 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 22:51:33.747 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Duration: 50 ms
+2026-04-23 22:51:33.747 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:51:33.747 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 22:51:33.864 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 22:51:33.864 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 22:51:33.880 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:51:33.880 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 22:51:33.880 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Duration: 16 ms
+2026-04-23 22:51:33.880 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:51:33.880 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 22:51:33.884 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 22:51:33.884 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 22:51:33.884 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Duration: 20 ms
+2026-04-23 22:51:33.884 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 22:51:33.884 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 23:18:22.415 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 23:18:22.416 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 23:18:22.417 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 23:18:22.417 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 23:18:22.417 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 23:18:22.417 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 23:18:22.417 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 23:18:23.968 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 23:18:23.969 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 23:18:23.969 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 23:18:24.252 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:18:24.252 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 23:18:24.252 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Duration: 283 ms
+2026-04-23 23:18:24.252 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:18:24.252 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 23:18:24.259 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:18:24.259 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 23:18:24.259 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Duration: 291 ms
+2026-04-23 23:18:24.259 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:18:24.259 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 23:18:24.284 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:18:24.284 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 23:18:24.284 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - Duration: 315 ms
+2026-04-23 23:18:24.285 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:18:24.285 [http-nio-0.0.0.0-8080-exec-2] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 23:25:10.325 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - Duration: 1 ms
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-23 23:25:10.326 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-23 23:25:11.655 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 23:25:11.727 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:25:11.727 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 23:25:11.727 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Duration: 72 ms
+2026-04-23 23:25:11.727 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:25:11.727 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 23:25:11.802 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 23:25:11.803 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 23:25:11.813 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:25:11.813 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 23:25:11.813 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 10 ms
+2026-04-23 23:25:11.813 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:25:11.814 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 23:25:11.819 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:25:11.819 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 23:25:11.819 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Duration: 17 ms
+2026-04-23 23:25:11.819 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:25:11.819 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 23:34:42.415 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 23:34:42.417 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 23:34:42.417 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1002
+2026-04-23 23:34:42.417 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1002",
+  "password": "shankar"
+}
+2026-04-23 23:34:42.417 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776967482417
+2026-04-23 23:34:42.439 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 23:34:42.439 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1002
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Login ID: 1002
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776967482711
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - Duration: 272 ms
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 23:34:42.711 [http-nio-0.0.0.0-8080-exec-7] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Process Planner",
+  "employeeName": "shankar",
+  "empId": "1002",
+  "activities": "PP_SUBMIT,PP_VIEW_ALL,PROFILE_MANAGEMENT"
+}
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776967482712
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - Duration: 297 ms
+2026-04-23 23:34:42.712 [http-nio-0.0.0.0-8080-exec-7] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 23:34:43.273 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 23:34:43.276 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 23:34:43.307 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:34:43.307 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 23:34:43.307 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 34 ms
+2026-04-23 23:34:43.307 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:34:43.307 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 23:34:43.314 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:34:43.314 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 23:34:43.314 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - Duration: 38 ms
+2026-04-23 23:34:43.314 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:34:43.314 [http-nio-0.0.0.0-8080-exec-8] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 23:34:43.346 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 23:34:43.355 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:34:43.355 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 23:34:43.355 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - Duration: 9 ms
+2026-04-23 23:34:43.355 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:34:43.355 [http-nio-0.0.0.0-8080-exec-1] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 23:41:08.803 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 23:41:08.803 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 23:41:08.803 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - Duration: 60 ms
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-10] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - Duration: 60 ms
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-7] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Duration: 60 ms
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:41:08.863 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 23:46:00.417 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-23 23:46:00.418 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-23 23:46:00.418 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1002
+2026-04-23 23:46:00.420 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1002",
+  "password": "shankar"
+}
+2026-04-23 23:46:00.420 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776968160420
+2026-04-23 23:46:00.425 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-23 23:46:00.425 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1002
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Login ID: 1002
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776968160561
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - Duration: 137 ms
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-23 23:46:00.561 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "Process Planner",
+  "employeeName": "shankar",
+  "empId": "1002",
+  "activities": "PP_SUBMIT,PP_VIEW_ALL,PROFILE_MANAGEMENT"
+}
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776968160562
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - Duration: 145 ms
+2026-04-23 23:46:00.562 [http-nio-0.0.0.0-8080-exec-6] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-23 23:46:01.222 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS START ===
+2026-04-23 23:46:01.224 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS START ===
+2026-04-23 23:46:01.230 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS START ===
+2026-04-23 23:46:01.267 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Operation: GET ALL PRODUCTS
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - Duration: 45 ms
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-3] INFO  c.c.s.c.ProductionController - === GET ALL PRODUCTS END - SUCCESS ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Operation: GET ALL ROUTINGS
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - Duration: 38 ms
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE METRICS ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Operation: GET ALL OPERATIONS
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - Duration: 44 ms
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-5] INFO  c.c.s.c.ProductionController - === GET ALL OPERATIONS END - SUCCESS ===
+2026-04-23 23:46:01.268 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === PERFORMANCE END ===
+2026-04-23 23:46:01.269 [http-nio-0.0.0.0-8080-exec-9] INFO  c.c.s.c.ProductionController - === GET ALL ROUTINGS END - SUCCESS ===

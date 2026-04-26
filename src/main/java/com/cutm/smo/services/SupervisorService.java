@@ -37,6 +37,15 @@ public class SupervisorService {
     @Autowired
     private BinRepository binRepository;
 
+    @Autowired
+    private EnhancedTrackingService enhancedTrackingService;
+
+    @Autowired
+    private EnhancedMergingService enhancedMergingService;
+
+    @Autowired
+    private EnhancedQrAssignmentService enhancedQrAssignmentService;
+
     /**
      * Get all approved process plan numbers (routing IDs)
      */
@@ -124,61 +133,12 @@ public class SupervisorService {
     }
 
     /**
-     * Submit QR assignment
-     * Creates a new garment record with the QR code and associated metadata
+     * Submit QR assignment using enhanced workflow
+     * Includes transaction management, status validation, and assignment history
      */
     @Transactional
     public Map<String, Object> submitQrAssignment(QrAssignmentRequest request) {
-        Map<String, Object> response = new HashMap<>();
-        
-        try {
-            // Validate required fields
-            if (request.getProcessPlanNumber() == null || request.getProcessPlanNumber().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Process Plan Number is required");
-                return response;
-            }
-            
-            if (request.getQrCode() == null || request.getQrCode().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "QR Code is required");
-                return response;
-            }
-            
-            // Check if QR code already exists
-            Optional<Garment> existingGarment = garmentRepository.findByQrCode(request.getQrCode());
-            if (existingGarment.isPresent()) {
-                response.put("success", false);
-                response.put("message", "QR Code already assigned to another garment");
-                return response;
-            }
-            
-            // Find style variant ID based on provided data
-            Long styleVariantId = findStyleVariantId(request);
-            
-            // Create new garment record
-            Garment garment = new Garment();
-            garment.setQrCode(request.getQrCode());
-            garment.setStyleVariantId(styleVariantId);
-            garment.setStatus("ASSIGNED");
-            
-            // Generate garment ID (you may want to use a sequence or auto-increment)
-            Long maxId = garmentRepository.findMaxGarmentId();
-            garment.setGarmentId(maxId != null ? maxId + 1 : 1L);
-            
-            garmentRepository.save(garment);
-            
-            response.put("success", true);
-            response.put("message", "QR Code assigned successfully");
-            response.put("garmentId", garment.getGarmentId());
-            response.put("qrCode", garment.getQrCode());
-            
-        } catch (Exception e) {
-            response.put("success", false);
-            response.put("message", "Error assigning QR code: " + e.getMessage());
-        }
-        
-        return response;
+        return enhancedQrAssignmentService.processEnhancedQrAssignment(request);
     }
     
     /**
@@ -214,152 +174,20 @@ public class SupervisorService {
     }
     
     /**
-     * Submit tracking data
-     * Creates a WIP tracking record
+     * Submit tracking data using enhanced two-phase workflow
+     * Automatically detects assignment vs completion
      */
     @Transactional
     public Map<String, Object> submitTracking(TrackingRequest request) {
-        Map<String, Object> response = new HashMap<>();
-        
-        try {
-            // Validate required fields
-            if (request.getMachineQr() == null || request.getMachineQr().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Machine QR is required");
-                return response;
-            }
-            
-            if (request.getEmployeeQr() == null || request.getEmployeeQr().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Employee QR is required");
-                return response;
-            }
-            
-            if (request.getTrayQr() == null || request.getTrayQr().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Tray QR is required");
-                return response;
-            }
-            
-            if (request.getStatus() == null || request.getStatus().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Status is required");
-                return response;
-            }
-            
-            // Create WIP tracking record
-            // Note: This is a simplified implementation. In production, you would:
-            // 1. Parse QR codes to get actual IDs
-            // 2. Validate that machine, employee, and bin exist
-            // 3. Link to actual operation being tracked
-            
-            WipTracking tracking = new WipTracking();
-            tracking.setStatus(request.getStatus());
-            tracking.setStartTime(LocalDateTime.now());
-            
-            // Generate tracking ID
-            Long maxId = wipTrackingRepository.findMaxWipTrackingId();
-            tracking.setWipId(maxId != null ? maxId + 1 : 1L);
-            
-            wipTrackingRepository.save(tracking);
-            
-            response.put("success", true);
-            response.put("message", "Tracking submitted successfully");
-            response.put("trackingId", tracking.getWipId());
-            response.put("machineQr", request.getMachineQr());
-            response.put("employeeQr", request.getEmployeeQr());
-            response.put("trayQr", request.getTrayQr());
-            
-        } catch (Exception e) {
-            response.put("success", false);
-            response.put("message", "Error submitting tracking: " + e.getMessage());
-        }
-        
-        return response;
+        return enhancedTrackingService.processTracking(request);
     }
     
     /**
-     * Submit merging data
-     * Merges two bins/tubs into one
+     * Submit merging data using enhanced workflow
+     * Includes compatibility validation and multi-table updates
      */
     @Transactional
     public Map<String, Object> submitMerging(MergingRequest request) {
-        Map<String, Object> response = new HashMap<>();
-        
-        try {
-            // Validate required fields
-            if (request.getTub1Qr() == null || request.getTub1Qr().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Tub 1 QR is required");
-                return response;
-            }
-            
-            if (request.getTub1Description() == null || request.getTub1Description().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Tub 1 Description is required");
-                return response;
-            }
-            
-            if (request.getTub2Qr() == null || request.getTub2Qr().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Tub 2 QR is required");
-                return response;
-            }
-            
-            if (request.getTub2Description() == null || request.getTub2Description().trim().isEmpty()) {
-                response.put("success", false);
-                response.put("message", "Tub 2 Description is required");
-                return response;
-            }
-            
-            // Check if trying to merge same tub
-            if (request.getTub1Qr().equals(request.getTub2Qr())) {
-                response.put("success", false);
-                response.put("message", "Cannot merge the same tub");
-                return response;
-            }
-            
-            // Find bins by QR codes
-            Optional<Bin> bin1Opt = binRepository.findByQrCode(request.getTub1Qr());
-            Optional<Bin> bin2Opt = binRepository.findByQrCode(request.getTub2Qr());
-            
-            if (!bin1Opt.isPresent()) {
-                response.put("success", false);
-                response.put("message", "Tub 1 not found");
-                return response;
-            }
-            
-            if (!bin2Opt.isPresent()) {
-                response.put("success", false);
-                response.put("message", "Tub 2 not found");
-                return response;
-            }
-            
-            Bin bin1 = bin1Opt.get();
-            Bin bin2 = bin2Opt.get();
-            
-            // Merge logic: Update bin1 with combined quantity, mark bin2 as merged
-            Integer totalQuantity = (bin1.getQty() != null ? bin1.getQty() : 0) + 
-                                   (bin2.getQty() != null ? bin2.getQty() : 0);
-            
-            bin1.setQty(totalQuantity);
-            bin1.setStatus("MERGED");
-            
-            bin2.setStatus("MERGED_INTO_" + bin1.getBinId());
-            
-            binRepository.save(bin1);
-            binRepository.save(bin2);
-            
-            response.put("success", true);
-            response.put("message", "Tubs merged successfully");
-            response.put("mergedBinId", bin1.getBinId());
-            response.put("totalQuantity", totalQuantity);
-            
-        } catch (Exception e) {
-            response.put("success", false);
-            response.put("message", "Error merging tubs: " + e.getMessage());
-        }
-        
-        return response;
+        return enhancedMergingService.processEnhancedMerging(request);
     }
 }

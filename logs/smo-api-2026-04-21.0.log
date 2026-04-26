@@ -1,0 +1,304 @@
+2026-04-21 15:53:30.903 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS START ===
+2026-04-21 15:53:30.903 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-21 15:53:30.905 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-21 15:53:30.944 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-21 15:53:30.946 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-21 15:53:30.948 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - Duration: 3 ms
+2026-04-21 15:53:30.949 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-21 15:53:30.951 [http-nio-8080-exec-7] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-21 15:53:32.941 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE METRICS ===
+2026-04-21 15:53:32.942 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - Operation: Get Total WIP Records
+2026-04-21 15:53:32.942 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - Duration: 1939 ms
+2026-04-21 15:53:32.942 [http-nio-8080-exec-3] WARN  c.cutm.smo.services.InsightsService - SLOW OPERATION DETECTED: Get Total WIP Records took 1939 ms
+2026-04-21 15:53:32.942 [http-nio-8080-exec-3] INFO  c.cutm.smo.services.InsightsService - === PERFORMANCE END ===
+2026-04-21 15:53:32.942 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Supervisor insights retrieved successfully
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === PERFORMANCE METRICS ===
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Operation: Get Supervisor Insights
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - Duration: 2041 ms
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] WARN  c.c.s.controller.InsightsController - SLOW OPERATION DETECTED: Get Supervisor Insights took 2041 ms
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === PERFORMANCE END ===
+2026-04-21 15:53:32.943 [http-nio-8080-exec-3] INFO  c.c.s.controller.InsightsController - === GET SUPERVISOR INSIGHTS END - SUCCESS ===
+2026-04-21 15:53:42.424 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-21 15:53:42.427 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-21 15:53:42.427 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-21 15:53:42.428 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-21 15:53:42.430 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - Duration: 4 ms
+2026-04-21 15:53:42.430 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-21 15:53:42.430 [http-nio-8080-exec-9] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-21 15:54:10.569 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-21 15:54:10.571 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-21 15:54:10.572 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1001
+2026-04-21 15:54:10.666 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1001",
+  "password": "hr123"
+}
+2026-04-21 15:54:10.666 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776767050666
+2026-04-21 15:54:10.685 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-21 15:54:10.685 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1001
+2026-04-21 15:54:12.038 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-21 15:54:12.038 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Login ID: 1001
+2026-04-21 15:54:12.041 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-21 15:54:12.045 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776767052045
+2026-04-21 15:54:12.045 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.045 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-21 15:54:12.045 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - Duration: 1355 ms
+2026-04-21 15:54:12.045 [http-nio-8080-exec-9] WARN  com.cutm.smo.services.AuthService - SLOW OPERATION DETECTED: Authentication took 1355 ms
+2026-04-21 15:54:12.047 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-21 15:54:12.047 [http-nio-8080-exec-9] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-21 15:54:12.050 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-21 15:54:12.050 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-21 15:54:12.050 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "HR/Admin",
+  "employeeName": "HR Admin",
+  "empId": "1001",
+  "activities": "HR_DASHBOARD,ROLE_MANAGEMENT,EMPLOYEE_MANAGEMENT,PP_VIEW_ALL,PROFILE_MANAGEMENT"
+}
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776767052051
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - Duration: 1482 ms
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] WARN  c.cutm.smo.controller.AuthController - SLOW OPERATION DETECTED: Login Operation took 1482 ms
+2026-04-21 15:54:12.051 [http-nio-8080-exec-9] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-21 15:54:12.809 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 15:54:12.809 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 15:54:12.810 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-21 15:54:12.813 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 15:54:12.813 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 15:54:12.813 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 15:54:12.832 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID START ===
+2026-04-21 15:54:12.836 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 15:54:12.875 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 15:54:12.875 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.875 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 15:54:12.876 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Duration: 62 ms
+2026-04-21 15:54:12.876 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 15:54:12.876 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Duration: 67 ms
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 15:54:12.880 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 15:54:12.898 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 15:54:12.899 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.899 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 15:54:12.899 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Duration: 63 ms
+2026-04-21 15:54:12.899 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 15:54:12.899 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - Duration: 92 ms
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 15:54:12.905 [http-nio-8080-exec-3] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 15:54:12.925 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Employee found: HR Admin
+2026-04-21 15:54:12.925 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:12.928 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Operation: Get Employee By ID
+2026-04-21 15:54:12.928 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Duration: 93 ms
+2026-04-21 15:54:12.928 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 15:54:12.928 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID END - SUCCESS ===
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Duration: 277 ms
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 15:54:13.086 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Duration: 279 ms
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 15:54:13.088 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 15:54:13.114 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - Retrieved 3 employees
+2026-04-21 15:54:13.115 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:13.115 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-21 15:54:13.115 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - Duration: 305 ms
+2026-04-21 15:54:13.115 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 15:54:13.115 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-21 15:54:14.020 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-21 15:54:14.020 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Duration: 68 ms
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 15:54:14.088 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Retrieved 3 employees
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Duration: 103 ms
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 15:54:14.123 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-21 16:09:30.518 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-21 16:09:30.520 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-21 16:09:30.532 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:30.533 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-21 16:09:30.533 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - Duration: 3 ms
+2026-04-21 16:09:30.533 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-21 16:09:30.533 [http-nio-8080-exec-1] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-21 16:09:49.099 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST START ===
+2026-04-21 16:09:49.099 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: POST /api/auth/login
+2026-04-21 16:09:49.100 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Actor Employee ID: 1001
+2026-04-21 16:09:49.146 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Request Body: {
+  "loginid": "1001",
+  "password": "hr123"
+}
+2026-04-21 16:09:49.146 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776767989146
+2026-04-21 16:09:49.210 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS START ===
+2026-04-21 16:09:49.210 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login attempt for Employee ID: 1001
+2026-04-21 16:09:50.536 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === AUTHENTICATION ATTEMPT ===
+2026-04-21 16:09:50.536 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Login ID: 1001
+2026-04-21 16:09:50.536 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Success: true
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Timestamp: 1776767990538
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Operation: Authentication
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - Duration: 1325 ms
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] WARN  com.cutm.smo.services.AuthService - SLOW OPERATION DETECTED: Authentication took 1325 ms
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === PERFORMANCE END ===
+2026-04-21 16:09:50.538 [http-nio-8080-exec-3] INFO  com.cutm.smo.services.AuthService - === LOGIN PROCESS END - SUCCESS ===
+2026-04-21 16:09:50.539 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API RESPONSE ===
+2026-04-21 16:09:50.539 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Endpoint: /api/auth/login
+2026-04-21 16:09:50.539 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Status Code: 200
+2026-04-21 16:09:50.540 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Response Body: {
+  "role": "HR/Admin",
+  "employeeName": "HR Admin",
+  "empId": "1001",
+  "activities": "HR_DASHBOARD,ROLE_MANAGEMENT,EMPLOYEE_MANAGEMENT,PP_VIEW_ALL,PROFILE_MANAGEMENT"
+}
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Timestamp: 1776767990541
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === API REQUEST END ===
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Operation: Login Operation
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - Duration: 1440 ms
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] WARN  c.cutm.smo.controller.AuthController - SLOW OPERATION DETECTED: Login Operation took 1440 ms
+2026-04-21 16:09:50.541 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.AuthController - === PERFORMANCE END ===
+2026-04-21 16:09:51.002 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-21 16:09:51.002 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:09:51.002 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:09:51.004 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID START ===
+2026-04-21 16:09:51.009 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:09:51.009 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:09:51.009 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:09:51.009 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:09:51.044 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 16:09:51.045 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.045 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:09:51.045 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - Duration: 36 ms
+2026-04-21 16:09:51.045 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:09:51.045 [http-nio-8080-exec-6] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:09:51.061 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 16:09:51.061 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.062 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:09:51.062 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Duration: 52 ms
+2026-04-21 16:09:51.062 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:09:51.062 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - Duration: 59 ms
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:09:51.068 [http-nio-8080-exec-8] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Employee found: HR Admin
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Operation: Get Employee By ID
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Duration: 71 ms
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:09:51.075 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET EMPLOYEE BY ID END - SUCCESS ===
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - Duration: 108 ms
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:09:51.117 [http-nio-8080-exec-7] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Duration: 460 ms
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:09:51.462 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - Duration: 463 ms
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:09:51.465 [http-nio-8080-exec-8] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:09:51.484 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Retrieved 3 employees
+2026-04-21 16:09:51.485 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.485 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-21 16:09:51.485 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - Duration: 482 ms
+2026-04-21 16:09:51.485 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:09:51.485 [http-nio-8080-exec-7] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-21 16:09:51.513 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES START ===
+2026-04-21 16:09:51.514 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity EMPLOYEE_MANAGEMENT
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - Duration: 26 ms
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:09:51.540 [http-nio-8080-exec-4] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:09:51.574 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Retrieved 3 employees
+2026-04-21 16:09:51.575 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:09:51.575 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Operation: Get All Employees
+2026-04-21 16:09:51.575 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Duration: 62 ms
+2026-04-21 16:09:51.576 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:09:51.576 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET ALL EMPLOYEES END - SUCCESS ===
+2026-04-21 16:15:31.282 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK START ===
+2026-04-21 16:15:31.287 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - Health check successful
+2026-04-21 16:15:31.288 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE METRICS ===
+2026-04-21 16:15:31.288 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - Operation: Health Check
+2026-04-21 16:15:31.288 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - Duration: 7 ms
+2026-04-21 16:15:31.288 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - === PERFORMANCE END ===
+2026-04-21 16:15:31.288 [http-nio-8080-exec-5] INFO  c.c.smo.controller.HealthController - === HEALTH CHECK END - SUCCESS ===
+2026-04-21 16:33:43.858 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:33:43.879 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - Duration: 259 ms
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:33:44.138 [http-nio-8080-exec-10] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - Duration: 390 ms
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:33:44.248 [http-nio-8080-exec-10] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:42:17.322 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:42:17.331 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:42:17.614 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 16:42:17.618 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:42:17.619 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:42:17.619 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - Duration: 283 ms
+2026-04-21 16:42:17.619 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:42:17.619 [http-nio-8080-exec-1] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:42:17.749 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:42:17.750 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:42:17.750 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 16:42:17.750 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - Duration: 428 ms
+2026-04-21 16:42:17.750 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:42:17.750 [http-nio-8080-exec-1] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:43:10.215 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:43:10.216 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK START ===
+2026-04-21 16:43:10.234 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Access granted for user 1001 to activity ROLE_MANAGEMENT
+2026-04-21 16:43:10.235 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE METRICS ===
+2026-04-21 16:43:10.235 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Operation: Access Control Check
+2026-04-21 16:43:10.235 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - Duration: 19 ms
+2026-04-21 16:43:10.235 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === PERFORMANCE END ===
+2026-04-21 16:43:10.235 [http-nio-8080-exec-5] INFO  c.c.s.services.AccessControlService - === ACCESS CONTROL CHECK END - SUCCESS ===
+2026-04-21 16:43:10.244 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:43:10.245 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE METRICS ===
+2026-04-21 16:43:10.245 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Operation: Get All Roles
+2026-04-21 16:43:10.245 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - Duration: 30 ms
+2026-04-21 16:43:10.245 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === PERFORMANCE END ===
+2026-04-21 16:43:10.245 [http-nio-8080-exec-5] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:55:23.113 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:55:23.462 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:55:23.462 [http-nio-8080-exec-3] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:58:39.830 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:58:39.839 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:58:39.839 [http-nio-8080-exec-4] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===
+2026-04-21 16:58:50.464 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES START ===
+2026-04-21 16:58:50.472 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - Retrieved 5 roles
+2026-04-21 16:58:50.472 [http-nio-8080-exec-6] INFO  c.cutm.smo.controller.HrController - === GET ALL ROLES END - SUCCESS ===

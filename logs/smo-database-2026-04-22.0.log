@@ -1,0 +1,487 @@
+2026-04-22 10:09:58.222 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:09:58.501 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:09:59.687 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 10:09:59.747 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 10:09:59.776 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:09:59.783 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:09:59.791 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:09:59.800 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:09:59.807 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 10:09:59.827 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 10:09:59.833 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 10:09:59.863 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.863 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.882 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.893 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:09:59.899 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.908 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:09:59.920 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 10:09:59.924 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 10:09:59.924 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 10:09:59.938 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.940 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:09:59.940 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 10:10:22.184 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - === SERVICE METHOD ERROR ===
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - Service: AuthService
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - Method: login
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - Execution Time: 15 ms
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - Exception: 401 UNAUTHORIZED "Invalid credentials"
+2026-04-22 10:10:22.197 [http-nio-8080-exec-3] ERROR c.c.smo.config.DatabaseLoggingAspect - Stack Trace: 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid credentials"
+	at com.cutm.smo.services.AuthService.login(AuthService.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.cutm.smo.config.DatabaseLoggingAspect.logServiceMethods(DatabaseLoggingAspect.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:642)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:632)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.cutm.smo.services.AuthService$$SpringCGLIB$$0.login(<generated>)
+	at com.cutm.smo.controller.AuthController.login(AuthController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-04-22 10:10:28.037 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - === SERVICE METHOD ERROR ===
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - Service: AuthService
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - Method: login
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - Execution Time: 11 ms
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - Exception: 401 UNAUTHORIZED "Invalid credentials"
+2026-04-22 10:10:28.043 [http-nio-8080-exec-4] ERROR c.c.smo.config.DatabaseLoggingAspect - Stack Trace: 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid credentials"
+	at com.cutm.smo.services.AuthService.login(AuthService.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.cutm.smo.config.DatabaseLoggingAspect.logServiceMethods(DatabaseLoggingAspect.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:642)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:632)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.cutm.smo.services.AuthService$$SpringCGLIB$$0.login(<generated>)
+	at com.cutm.smo.controller.AuthController.login(AuthController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-04-22 10:10:37.038 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - === SERVICE METHOD ERROR ===
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - Service: AuthService
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - Method: login
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - Execution Time: 9 ms
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - Exception: 401 UNAUTHORIZED "Invalid credentials"
+2026-04-22 10:10:37.044 [http-nio-8080-exec-6] ERROR c.c.smo.config.DatabaseLoggingAspect - Stack Trace: 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid credentials"
+	at com.cutm.smo.services.AuthService.login(AuthService.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.cutm.smo.config.DatabaseLoggingAspect.logServiceMethods(DatabaseLoggingAspect.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:642)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:632)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.cutm.smo.services.AuthService$$SpringCGLIB$$0.login(<generated>)
+	at com.cutm.smo.controller.AuthController.login(AuthController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-04-22 10:11:30.572 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:11:30.582 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:11:31.229 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 10:11:31.522 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 10:11:31.522 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 10:11:31.522 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 10:11:31.524 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 10:11:31.522 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 10:11:31.526 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 10:11:52.903 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:11:52.916 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:11:53.416 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select p1_0.product_id,p1_0.category,p1_0.name,p1_0.status from product p1_0
+2026-04-22 10:11:53.456 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 10:11:53.462 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select o1_0.operation_id,o1_0.description,o1_0.is_parallel,o1_0.merge_point,o1_0.name,o1_0.sequence,o1_0.stage_group,o1_0.standard_time from operation o1_0
+2026-04-22 10:39:09.143 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select p1_0.product_id,p1_0.category,p1_0.name,p1_0.status from product p1_0
+2026-04-22 10:39:09.272 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select o1_0.operation_id,o1_0.description,o1_0.is_parallel,o1_0.merge_point,o1_0.name,o1_0.sequence,o1_0.stage_group,o1_0.standard_time from operation o1_0
+2026-04-22 10:39:09.273 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 10:40:47.840 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:40:47.870 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - === SERVICE METHOD ERROR ===
+2026-04-22 10:40:47.870 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - Service: AuthService
+2026-04-22 10:40:47.870 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - Method: login
+2026-04-22 10:40:47.870 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - Execution Time: 46 ms
+2026-04-22 10:40:47.883 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - Exception: 401 UNAUTHORIZED "Invalid credentials"
+2026-04-22 10:40:47.883 [http-nio-8080-exec-2] ERROR c.c.smo.config.DatabaseLoggingAspect - Stack Trace: 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid credentials"
+	at com.cutm.smo.services.AuthService.login(AuthService.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.cutm.smo.config.DatabaseLoggingAspect.logServiceMethods(DatabaseLoggingAspect.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:642)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:632)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.cutm.smo.services.AuthService$$SpringCGLIB$$0.login(<generated>)
+	at com.cutm.smo.controller.AuthController.login(AuthController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-04-22 10:40:53.211 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:40:53.215 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:40:53.680 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select p1_0.product_id,p1_0.category,p1_0.name,p1_0.status from product p1_0
+2026-04-22 10:40:53.983 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select o1_0.operation_id,o1_0.description,o1_0.is_parallel,o1_0.merge_point,o1_0.name,o1_0.sequence,o1_0.stage_group,o1_0.standard_time from operation o1_0
+2026-04-22 10:40:53.989 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 10:57:17.044 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 10:57:17.066 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 10:57:17.356 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 10:57:17.356 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 10:57:17.356 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 10:57:17.356 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 10:57:17.356 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 10:57:17.356 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 10:57:17.379 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 11:35:59.156 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 11:35:59.316 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 11:35:59.349 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 11:35:59.363 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 11:35:59.363 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 11:35:59.372 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 11:35:59.395 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 11:42:45.272 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 11:42:45.376 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 11:42:45.960 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 11:42:45.960 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 11:42:45.961 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 11:42:45.960 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 11:42:45.961 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 11:42:45.961 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 11:42:45.961 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 11:47:53.183 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 11:47:53.283 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 11:47:53.580 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 12:01:57.678 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 12:01:57.711 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 12:02:08.882 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:02:08.882 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:02:09.080 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 12:02:09.092 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 12:02:09.181 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:02:09.181 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:02:09.181 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:02:09.191 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:02:09.191 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:02:09.191 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:02:09.215 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:02:09.215 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:02:09.233 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:02:09.233 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:02:09.233 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:02:09.233 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:02:09.266 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.266 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.266 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.288 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.288 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.308 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:02:09.308 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.168 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:03:37.168 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:03:37.319 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from employee ei1_0 where ei1_0.emp_id=?
+2026-04-22 12:03:37.369 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0 where upper(ei1_0.email)=upper(?)
+2026-04-22 12:03:37.468 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.569 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status,l1_0.emp_id,l1_0.password,l1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id left join login l1_0 on ei1_0.emp_id=l1_0.emp_id where ei1_0.emp_id=?
+2026-04-22 12:03:37.586 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,e1_0.emp_id,e1_0.aadhar_number,e1_0.address,e1_0.blood_group,e1_0.dob,e1_0.email,e1_0.emergency_contact,e1_0.emp_date,e1_0.name,e1_0.pan_card_number,e1_0.phone,e1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,e1_0.salary,e1_0.status,el1_0.password,el1_0.status from login el1_0 left join employee e1_0 on e1_0.emp_id=el1_0.emp_id left join role r1_0 on r1_0.role_id=e1_0.role_id where el1_0.emp_id=?
+2026-04-22 12:03:37.618 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into employee (aadhar_number,address,blood_group,dob,email,emergency_contact,emp_date,name,pan_card_number,phone,role_id,salary,status,emp_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-04-22 12:03:37.669 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into login (password,status,emp_id) values (?,?,?)
+2026-04-22 12:03:37.735 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:03:37.736 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:03:37.736 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:03:37.752 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.752 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.752 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.752 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.752 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.769 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.769 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.835 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 12:03:37.852 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:03:37.868 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:03:37.868 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:03:37.868 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.868 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.868 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.885 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.885 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.885 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.885 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.919 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:03:37.934 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:03:37.934 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:03:37.934 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.934 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.934 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:03:37.951 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.951 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.951 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:03:37.951 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:24:42.869 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from wiptracking wt1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select s1_0.style_id,s1_0.branding_label,s1_0.concept,s1_0.created_at,s1_0.description,s1_0.main_label,s1_0.pattern_image,s1_0.status,s1_0.style_no from style s1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select sv1_0.style_variant_id,sv1_0.button_id,sv1_0.color,sv1_0.consumption_per_shirt,sv1_0.gtg_id,sv1_0.no_of_shirts_target,sv1_0.size,sv1_0.sleeve_type,sv1_0.status,sv1_0.style_id,sv1_0.thread_id from style_variant sv1_0
+2026-04-22 12:24:42.869 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select b1_0.button_id,b1_0.button_code,b1_0.button_name,b1_0.status from buttons b1_0
+2026-04-22 12:25:14.929 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:25:14.965 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:25:15.230 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select p1_0.product_id,p1_0.category,p1_0.name,p1_0.status from product p1_0
+2026-04-22 12:25:15.243 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select o1_0.operation_id,o1_0.description,o1_0.is_parallel,o1_0.merge_point,o1_0.name,o1_0.sequence,o1_0.stage_group,o1_0.standard_time from operation o1_0
+2026-04-22 12:25:15.266 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 12:25:38.595 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 12:25:38.637 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0
+2026-04-22 12:25:38.650 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:25:38.651 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:25:38.656 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:25:38.657 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:25:38.664 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:25:38.666 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:25:38.674 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.675 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:25:38.677 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.680 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.681 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,ei1_0.salary,ei1_0.status from employee ei1_0
+2026-04-22 12:25:38.685 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.687 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.689 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.689 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.690 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status from role r1_0 where r1_0.role_id=?
+2026-04-22 12:25:38.695 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.699 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.699 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.707 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.707 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.709 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:25:38.709 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select l1_0.emp_id,l1_0.password,l1_0.status from login l1_0 where l1_0.emp_id=?
+2026-04-22 12:26:02.527 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:26:02.532 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
+2026-04-22 12:26:02.709 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select p1_0.product_id,p1_0.category,p1_0.name,p1_0.status from product p1_0
+2026-04-22 12:26:02.735 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select o1_0.operation_id,o1_0.description,o1_0.is_parallel,o1_0.merge_point,o1_0.name,o1_0.sequence,o1_0.stage_group,o1_0.standard_time from operation o1_0
+2026-04-22 12:26:02.735 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select r1_0.routing_id,r1_0.approval_status,r1_0.approved_at,r1_0.approved_by,r1_0.previous_routing_id,r1_0.product_id,r1_0.status,r1_0.version from routing r1_0
+2026-04-22 12:28:50.845 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select el1_0.emp_id,el1_0.password,el1_0.status from login el1_0 where el1_0.emp_id=?
+2026-04-22 12:28:50.867 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ei1_0.emp_id,ei1_0.aadhar_number,ei1_0.address,ei1_0.blood_group,ei1_0.dob,ei1_0.email,ei1_0.emergency_contact,ei1_0.emp_date,ei1_0.name,ei1_0.pan_card_number,ei1_0.phone,ei1_0.role_id,r1_0.role_id,r1_0.activities,r1_0.role_name,r1_0.status,ei1_0.salary,ei1_0.status from employee ei1_0 join role r1_0 on r1_0.role_id=ei1_0.role_id where ei1_0.emp_id=?
