@@ -81,6 +81,15 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Node-level performance metrics
 - Production bottleneck identification
 - Real-time KPI tracking
+- GM-specific insights (pending/approved process plans)
+
+#### 8. **Service Discovery & Auto-Configuration**
+- mDNS/Bonjour service discovery
+- Automatic backend detection on local networks
+- Network scanning fallback mechanism
+- Health check endpoints
+- Service information endpoints
+- Support for any local network (192.168.x.x, 10.x.x.x, 172.x.x.x)
 
 ---
 
@@ -250,6 +259,14 @@ POST   /api/hr/roles                          # Create role
 ```http
 GET    /api/insights/dashboard                # Dashboard metrics
 GET    /api/insights/supervisor               # Supervisor insights
+GET    /api/insights/gm                       # GM insights (pending/approved plans)
+```
+
+#### Service Discovery
+```http
+GET    /api/health                            # Health check endpoint
+GET    /api/discovery/info                    # Service discovery info
+GET    /api/discovery/ping                    # Service discovery ping
 ```
 
 ### Response Format
@@ -299,6 +316,16 @@ spring.jpa.show-sql=false
 
 # Security
 app.security.aes-key=${SMO_DATA_KEY}
+
+# Service Discovery Configuration
+smo.service.name=SMO-Backend
+smo.service.version=1.0.0
+app.base-url=http://localhost
+
+# Production-Safe Logging
+logging.level.com.cutm.smo=INFO
+logging.level.org.springframework.web=WARN
+logging.level.org.hibernate=WARN
 ```
 
 ---

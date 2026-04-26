@@ -1,9 +1,11 @@
 package com.cutm.smo.controller;
 
-import com.cutm.smo.services.InsightsService;
-import com.cutm.smo.util.LoggingUtil;
+import com.cutm.smo.services.AccessControlService;
+import com.cutm.smo.services.ProcessPlanService;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
@@ -11,73 +13,48 @@ import java.util.Map;
 @RequestMapping("/api/insights")
 @CrossOrigin(origins = "*")
 public class InsightsController {
-    private final InsightsService insightsService;
+    
+    private final ProcessPlanService processPlanService;
+    private final AccessControlService accessControlService;
 
-    public InsightsController(InsightsService insightsService) { this.insightsService = insightsService; }
-
-    @GetMapping("/dashboard")
-    public Map<String, Long> getDashboard() {
-        long startTime = System.currentTimeMillis();
-        try {
-            log.info("=== GET INSIGHTS DASHBOARD START ===");
-            long totalPO = insightsService.getTotalPurchaseOrders();
-            log.debug("Total Purchase Orders: {}", totalPO);
-            long totalGrns = insightsService.getTotalGrns();
-            log.debug("Total GRNs: {}", totalGrns);
-            long totalInventory = insightsService.getTotalInventoryItems();
-            log.debug("Total Inventory Items: {}", totalInventory);
-            long totalWip = insightsService.getTotalWipRecords();
-            log.debug("Total WIP Records: {}", totalWip);
-            
-            Map<String, Long> dashboard = Map.of(
-                "totalPurchaseOrders", totalPO,
-                "totalGrns", totalGrns,
-                "totalInventoryItems", totalInventory,
-                "totalWipRecords", totalWip
-            );
-            
-            log.info("Dashboard data retrieved successfully");
-            long endTime = System.currentTimeMillis();
-            LoggingUtil.logPerformance(log, "Get Insights Dashboard", startTime, endTime);
-            log.info("=== GET INSIGHTS DASHBOARD END - SUCCESS ===");
-            return dashboard;
-        } catch (Exception e) {
-            long endTime = System.currentTimeMillis();
-            LoggingUtil.logError(log, "Failed to get insights dashboard", e);
-            LoggingUtil.logPerformance(log, "Get Insights Dashboard (Failed)", startTime, endTime);
-            throw e;
-        }
+    public InsightsController(ProcessPlanService processPlanService, AccessControlService accessControlService) {
+        this.processPlanService = processPlanService;
+        this.accessControlService = accessControlService;
     }
 
-    @GetMapping("/supervisor")
-    public Map<String, Object> getSupervisorInsights() {
-        long startTime = System.currentTimeMillis();
+    /**
+     * Get GM insights - Process Plan statistics
+     */
+    @GetMapping("/gm")
+    public Map<String, Object> getGmInsights(@RequestParam String actorEmpId) {
         try {
-            log.info("=== GET SUPERVISOR INSIGHTS START ===");
-            long activeWip = insightsService.getTotalWipRecords();
-            log.debug("Active WIP Count: {}", activeWip);
+            log.info("=== GET GM INSIGHTS START ===");
+            log.debug("Actor Employee ID: {}", actorEmpId);
             
-            // Calculate bottleneck operations (simplified - count WIP records as proxy)
-            int bottleneckOps = activeWip > 10 ? 2 : 0;
-            String balancingHint = bottleneckOps > 0 
-                ? "Production line has bottlenecks. Consider rebalancing workload."
-                : "Production line is balanced.";
+            accessControlService.require(actorEmpId, "PP_APPROVE");
+            log.debug("Access control check passed for PP_APPROVE");
             
-            Map<String, Object> insights = Map.of(
-                "activeWipCount", (int) activeWip,
-                "bottleneckOperationCount", bottleneckOps,
-                "lineBalancingHint", balancingHint
-            );
+            // Get process plan statistics
+            int pendingCount = processPlanService.getPendingProcessPlans().size();
+            int approvedCount = processPlanService.getApprovedProcessPlans().size();
             
-            log.info("Supervisor insights retrieved successfully");
-            long endTime = System.currentTimeMillis();
-            LoggingUtil.logPerformance(log, "Get Supervisor Insights", startTime, endTime);
-            log.info("=== GET SUPERVISOR INSIGHTS END - SUCCESS ===");
+            Map<String, Object> insights = new HashMap<>();
+            insights.put("pendingProcessPlans", pendingCount);
+            insights.put("approvedProcessPlans", approvedCount);
+            insights.put("totalProcessPlans", pendingCount + approvedCount);
+            insights.put("reportStatus", pendingCount > 0 ? "PENDING_APPROVALS" : "ALL_APPROVED");
+            
+            // Mock additional data for dashboard
+            insights.put("totalWipRecords", 0);
+            insights.put("activeWipRecords", 0);
+            insights.put("totalInventoryQty", 0);
+            
+            log.info("GM insights retrieved successfully - Pending: {}, Approved: {}", pendingCount, approvedCount);
+            log.info("=== GET GM INSIGHTS END - SUCCESS ===");
             return insights;
+            
         } catch (Exception e) {
-            long endTime = System.currentTimeMillis();
-            LoggingUtil.logError(log, "Failed to get supervisor insights", e);
-            LoggingUtil.logPerformance(log, "Get Supervisor Insights (Failed)", startTime, endTime);
+            log.error("Failed to get GM insights for actor: {}", actorEmpId, e);
             throw e;
         }
     }

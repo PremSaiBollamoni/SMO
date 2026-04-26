@@ -22,29 +22,10 @@ public class ApplicationStartupListener {
     @EventListener(ApplicationReadyEvent.class)
     public void onApplicationReady() {
         String fullUrl = baseUrl + ":" + serverPort;
-        String healthUrl = fullUrl + "/api/health";
         
-        // Print to console with explicit flush for Render compatibility
-        System.out.println("\n");
-        System.out.println("╔════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                                                                ║");
-        System.out.println("║          ✅ SMO BACKEND APPLICATION STARTED SUCCESSFULLY       ║");
-        System.out.println("║                                                                ║");
-        System.out.println("║  Server: " + String.format("%-50s", fullUrl) + "║");
-        System.out.println("║  Health: " + String.format("%-50s", healthUrl) + "║");
-        System.out.println("║  Logs:   logs/ directory                                       ║");
-        System.out.println("║                                                                ║");
-        System.out.println("╚════════════════════════════════════════════════════════════════╝");
-        System.out.println("\n");
-        System.out.flush(); // Ensure output is flushed immediately
-        
-        // Also log to file
-        log.info("╔════════════════════════════════════════════════════════════════╗");
-        log.info("║          ✅ SMO BACKEND APPLICATION STARTED SUCCESSFULLY       ║");
-        log.info("║  Server: " + fullUrl);
-        log.info("║  Health: " + healthUrl);
-        log.info("║  Logs:   logs/ directory");
-        log.info("╚════════════════════════════════════════════════════════════════╝");
+        log.info("SMO Backend started successfully at {}", fullUrl);
+        log.info("Health endpoint: {}/api/health", fullUrl);
+        log.info("API base: {}/api", fullUrl);
     }
 }
 
