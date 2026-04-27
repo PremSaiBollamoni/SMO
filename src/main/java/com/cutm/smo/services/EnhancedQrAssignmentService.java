@@ -25,6 +25,9 @@ public class EnhancedQrAssignmentService {
     @Autowired
     private StyleVariantRepository styleVariantRepository;
 
+    @Autowired
+    private com.cutm.smo.repository.OrderRepository orderRepository;
+
     /**
      * Enhanced QR assignment with transaction-based workflow
      * Following the flowchart: Transaction → QR Check → Status Validation → Assignment
@@ -258,6 +261,17 @@ public class EnhancedQrAssignmentService {
         bin.setAssignmentStartTime(now);
         bin.setLastAssignedBy(supervisorId);
         bin.setQty(request.getTrayQuantity());
+        
+        // Link bin to order if orderNumber provided
+        if (request.getOrderNumber() != null && !request.getOrderNumber().trim().isEmpty()) {
+            Optional<Order> orderOpt = orderRepository.findByOrderNumber(request.getOrderNumber());
+            if (orderOpt.isPresent()) {
+                bin.setOrderId(orderOpt.get().getOrderId());
+            } else {
+                // Log warning but don't fail the assignment
+                System.out.println("[WARN] Order not found for orderNumber: " + request.getOrderNumber());
+            }
+        }
         
         Bin savedBin = binRepository.save(bin);
 

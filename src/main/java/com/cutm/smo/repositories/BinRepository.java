@@ -61,4 +61,9 @@ public interface BinRepository extends JpaRepository<Bin, Long> {
      */
     @Query("SELECT COUNT(b) FROM Bin b WHERE b.currentRoutingId = :routingId AND b.lastOperationId = :operationId AND b.currentStatus IN ('assigned', 'in_progress')")
     int countWipAtNode(@Param("routingId") Long routingId, @Param("operationId") Long operationId);
+    
+    /**
+     * Find bins by order ID
+     */
+    List<Bin> findByOrderId(Long orderId);
 }

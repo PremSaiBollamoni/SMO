@@ -58,4 +58,28 @@ public class InsightsController {
             throw e;
         }
     }
+
+    /**
+     * Get Supervisor insights - Floor-level statistics
+     */
+    @GetMapping("/supervisor")
+    public Map<String, Object> getSupervisorInsights(@RequestParam(required = false) String actorEmpId) {
+        try {
+            log.info("=== GET SUPERVISOR INSIGHTS START ===");
+            
+            // Return mock data for now - can be enhanced later with real WIP data
+            Map<String, Object> insights = new HashMap<>();
+            insights.put("activeWipCount", 0);
+            insights.put("bottleneckOperationCount", 0);
+            insights.put("lineBalancingHint", "No bottlenecks detected");
+            
+            log.info("Supervisor insights retrieved successfully");
+            log.info("=== GET SUPERVISOR INSIGHTS END - SUCCESS ===");
+            return insights;
+            
+        } catch (Exception e) {
+            log.error("Failed to get supervisor insights", e);
+            throw e;
+        }
+    }
 }

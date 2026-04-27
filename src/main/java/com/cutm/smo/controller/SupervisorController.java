@@ -74,6 +74,15 @@ public class SupervisorController {
     }
 
     /**
+     * Get operations for a specific routing/process plan
+     */
+    @GetMapping("/operations/{routingId}")
+    public ResponseEntity<List<Map<String, Object>>> getOperationsForRouting(@PathVariable Long routingId) {
+        List<Map<String, Object>> operations = supervisorService.getOperationsForRouting(routingId);
+        return ResponseEntity.ok(operations);
+    }
+
+    /**
      * Submit QR assignment
      */
     @PostMapping("/qr-assignment")

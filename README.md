@@ -83,7 +83,16 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Real-time KPI tracking
 - GM-specific insights (pending/approved process plans)
 
-#### 8. **Service Discovery & Auto-Configuration**
+#### 8. **Order Management System** ⭐ NEW
+- Create and manage production orders with target quantities
+- Link orders to products and process plans (routings)
+- Order status tracking (DRAFT, ACTIVE, ON_HOLD, COMPLETED, CANCELLED)
+- Bin-to-order linkage via foreign key relationship
+- Real-time progress calculation from WIP tracking
+- Strategic monitoring for GM oversight
+- Order activation workflow
+
+#### 9. **Service Discovery & Auto-Configuration**
 - mDNS/Bonjour service discovery
 - Automatic backend detection on local networks
 - Network scanning fallback mechanism
@@ -91,7 +100,7 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Service information endpoints
 - Support for any local network (192.168.x.x, 10.x.x.x, 172.x.x.x)
 
-#### 9. **Interactive Workflow Monitoring**
+#### 10. **Interactive Workflow Monitoring**
 - Clickable workflow nodes for real-time production insights
 - Role-based node access control (GM and Supervisor only)
 - Live metrics: WIP counts, active jobs, daily completion stats
@@ -246,10 +255,19 @@ POST   /api/production/bundles                # Create bundle
 
 #### Supervisor Operations
 ```http
-POST   /api/supervisor/qr-assignment          # Assign QR to operator
+POST   /api/supervisor/qr-assignment          # Assign QR to bin with order linkage
 POST   /api/supervisor/tracking               # Track work progress
 POST   /api/supervisor/merging                # Merge bins
 GET    /api/supervisor/process-plans          # Get process plans
+GET    /api/supervisor/operations/{routingId} # Get operations for routing
+```
+
+#### Order Management ⭐ NEW
+```http
+GET    /api/orders/active                     # Get active orders
+GET    /api/orders/status/{orderNumber}       # Get order status and progress
+POST   /api/orders                            # Create new order
+POST   /api/orders/{orderId}/activate         # Activate order
 ```
 
 #### HR Management

@@ -179,6 +179,7 @@ public class ProcessPlanService {
     /**
      * Build explicit edges from routing table relationships.
      * Uses routing order and operation types to determine dependencies.
+     * Enhanced to handle missing operation types and merge chains.
      */
     private List<WorkflowEdge> buildExplicitEdges(List<RoutingStep> steps, Map<Long, Operation> operationById) {
         List<WorkflowEdge> edges = new ArrayList<>();
@@ -187,15 +188,32 @@ public class ProcessPlanService {
             return edges;
         }
         
+        log.info("[buildExplicitEdges] ═══ BUILDING EDGES FOR {} OPERATIONS ═══", steps.size());
+        
         // Build a map of operation_id to operation for quick lookup
         Map<Long, Operation> opMap = new HashMap<>(operationById);
+        
+        // Log all operations for debugging
+        for (int i = 0; i < steps.size(); i++) {
+            RoutingStep step = steps.get(i);
+            Operation op = opMap.get(step.getOperationId());
+            if (op != null) {
+                log.debug("[buildExplicitEdges] [{}] {} (type={}, stage={})", 
+                    i, op.getName(), op.getOperationType(), op.getStageGroup());
+            }
+        }
         
         // Process each step and determine its outgoing edges
         for (int i = 0; i < steps.size(); i++) {
             RoutingStep current = steps.get(i);
             Operation currentOp = opMap.get(current.getOperationId());
             
-            if (currentOp == null) continue;
+            if (currentOp == null) {
+                log.warn("[buildExplicitEdges] ⚠ Operation not found for step {}", i);
+                continue;
+            }
+            
+            log.debug("[buildExplicitEdges] Processing: {}", currentOp.getName());
             
             // Determine outgoing edges based on operation type
             if (currentOp.isSequential()) {
@@ -238,53 +256,113 @@ public class ProcessPlanService {
                     }
                 }
             } else if (currentOp.isParallelBranch()) {
-                // Parallel branch: connect to corresponding merge
-                String branchSuffix = currentOp.getName();
-                if (branchSuffix.endsWith("_LINE")) {
-                    branchSuffix = branchSuffix.substring(0, branchSuffix.length() - 5);
-                }
-                String expectedMergeName = "MERGE_" + branchSuffix;
+                // Parallel branch: Check if this is actually a branch SOURCE (fan-out point)
+                // or a branch TARGET (receives from fan-out)
                 
-                log.debug("[buildExplicitEdges] Processing parallel branch: {} -> looking for {}", currentOp.getName(), expectedMergeName);
+                // If name contains "CREATION" or "BIN", it's likely a branch source
+                boolean isBranchSource = currentOp.getName().contains("CREATION") || 
+                                        currentOp.getName().contains("BIN") ||
+                                        currentOp.getName().contains("PART_BIN");
                 
-                // Find matching merge
-                boolean foundMerge = false;
-                for (int j = i + 1; j < steps.size(); j++) {
-                    RoutingStep candidate = steps.get(j);
-                    Operation candidateOp = opMap.get(candidate.getOperationId());
-                    if (candidateOp != null && candidateOp.isMerge()) {
-                        log.debug("[buildExplicitEdges]   Checking merge candidate: {}", candidateOp.getName());
-                        if (candidateOp.getName().equals(expectedMergeName)) {
-                            edges.add(new WorkflowEdge(
-                                currentOp.getOperationId(),
-                                candidateOp.getOperationId(),
-                                currentOp.getName(),
-                                candidateOp.getName(),
-                                "merge"
-                            ));
-                            log.debug("[buildExplicitEdges]   ✓ EDGE ADDED: {} -> {}", currentOp.getName(), candidateOp.getName());
-                            foundMerge = true;
-                            break;
+                if (isBranchSource) {
+                    // This is a fan-out point - connect to all parallel branches in next stage
+                    log.debug("[buildExplicitEdges] Branch source {} - creating fan-out edges", currentOp.getName());
+                    
+                    if (i + 1 < steps.size()) {
+                        RoutingStep next = steps.get(i + 1);
+                        int nextStage = next.getStageGroup();
+                        
+                        for (int j = i + 1; j < steps.size(); j++) {
+                            RoutingStep candidate = steps.get(j);
+                            Operation candidateOp = opMap.get(candidate.getOperationId());
+                            
+                            // Connect to all parallel branches in next stage
+                            if (candidateOp != null && candidateOp.isParallelBranch() && 
+                                candidate.getStageGroup() == nextStage &&
+                                !candidateOp.getName().contains("CREATION") &&
+                                !candidateOp.getName().contains("BIN")) {
+                                
+                                edges.add(new WorkflowEdge(
+                                    currentOp.getOperationId(),
+                                    candidateOp.getOperationId(),
+                                    currentOp.getName(),
+                                    candidateOp.getName(),
+                                    "fan_out"
+                                ));
+                                log.debug("[buildExplicitEdges]   ✓ FAN-OUT EDGE: {} -> {}", currentOp.getName(), candidateOp.getName());
+                            } else if (candidate.getStageGroup() > nextStage) {
+                                break;
+                            }
                         }
                     }
-                }
-                if (!foundMerge) {
-                    log.warn("[buildExplicitEdges] ⚠ No merge found for {}", currentOp.getName());
+                } else {
+                    // This is a branch target - connect to corresponding merge
+                    String branchSuffix = currentOp.getName();
+                    if (branchSuffix.endsWith("_LINE")) {
+                        branchSuffix = branchSuffix.substring(0, branchSuffix.length() - 5);
+                    }
+                    String expectedMergeName = "MERGE_" + branchSuffix;
+                    
+                    log.debug("[buildExplicitEdges] Processing parallel branch: {} -> looking for {}", currentOp.getName(), expectedMergeName);
+                    
+                    // Find matching merge
+                    boolean foundMerge = false;
+                    for (int j = i + 1; j < steps.size(); j++) {
+                        RoutingStep candidate = steps.get(j);
+                        Operation candidateOp = opMap.get(candidate.getOperationId());
+                        if (candidateOp != null && candidateOp.isMerge()) {
+                            log.debug("[buildExplicitEdges]   Checking merge candidate: {}", candidateOp.getName());
+                            if (candidateOp.getName().equals(expectedMergeName)) {
+                                edges.add(new WorkflowEdge(
+                                    currentOp.getOperationId(),
+                                    candidateOp.getOperationId(),
+                                    currentOp.getName(),
+                                    candidateOp.getName(),
+                                    "merge"
+                                ));
+                                log.debug("[buildExplicitEdges]   ✓ EDGE ADDED: {} -> {}", currentOp.getName(), candidateOp.getName());
+                                foundMerge = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!foundMerge) {
+                        log.warn("[buildExplicitEdges] ⚠ No merge found for {}", currentOp.getName());
+                    }
                 }
             } else if (currentOp.isMerge()) {
-                // Merge: connect to next non-merge operation
-                for (int j = i + 1; j < steps.size(); j++) {
-                    RoutingStep candidate = steps.get(j);
-                    Operation candidateOp = opMap.get(candidate.getOperationId());
-                    if (candidateOp != null && !candidateOp.isMerge()) {
+                // Merge: DO NOT auto-connect to next merge node
+                // But DO connect to next non-merge sequential operation
+                if (i + 1 < steps.size()) {
+                    RoutingStep next = steps.get(i + 1);
+                    Operation nextOp = opMap.get(next.getOperationId());
+                    if (nextOp != null && !nextOp.isMerge()) {
+                        // Connect merge to next sequential operation
                         edges.add(new WorkflowEdge(
                             currentOp.getOperationId(),
-                            candidateOp.getOperationId(),
+                            nextOp.getOperationId(),
                             currentOp.getName(),
-                            candidateOp.getName(),
-                            "merge_convergence"
+                            nextOp.getName(),
+                            "merge_to_sequential"
                         ));
-                        break;
+                        log.debug("[buildExplicitEdges]   ✓ MERGE TO SEQUENTIAL: {} -> {}", currentOp.getName(), nextOp.getName());
+                    }
+                }
+            } else {
+                // Unknown or NULL operation type - treat as sequential fallback
+                log.warn("[buildExplicitEdges] ⚠ Unknown operation type for {}, treating as sequential", currentOp.getName());
+                if (i + 1 < steps.size()) {
+                    RoutingStep next = steps.get(i + 1);
+                    Operation nextOp = opMap.get(next.getOperationId());
+                    if (nextOp != null) {
+                        edges.add(new WorkflowEdge(
+                            currentOp.getOperationId(),
+                            nextOp.getOperationId(),
+                            currentOp.getName(),
+                            nextOp.getName(),
+                            "sequential_fallback"
+                        ));
+                        log.debug("[buildExplicitEdges]   ✓ FALLBACK EDGE: {} -> {}", currentOp.getName(), nextOp.getName());
                     }
                 }
             }
@@ -294,7 +372,7 @@ public class ProcessPlanService {
         // These ensure COLLAR_CUFF_LINE and POCKET_PLACKET_LINE connect to their corresponding merges
         addHardcodedEdges(edges, opMap, steps);
         
-        log.info("[buildExplicitEdges] Total edges built: {}", edges.size());
+        log.info("[buildExplicitEdges] ═══ TOTAL EDGES BUILT: {} ═══", edges.size());
         for (WorkflowEdge edge : edges) {
             log.info("[buildExplicitEdges]   {} -> {} ({})", edge.getFromName(), edge.getToName(), edge.getEdgeType());
         }
@@ -350,6 +428,95 @@ public class ProcessPlanService {
                         "merge"
                     ));
                     log.debug("[addHardcodedEdges] ✓ HARDCODED EDGE ADDED: {} -> {}", branchName, mergeName);
+                }
+            }
+        }
+        
+        // Define merge convergence points - where all merges flow to
+        // Find the convergence operation (typically SIDE_SEAM, ASSEMBLY, or similar)
+        String[] mergeNames = {"MERGE_COLLAR", "MERGE_POCKET", "MERGE_SLEEVE", "MERGE_BODY"};
+        String[] convergenceTargets = {"SIDE_SEAM", "ASSEMBLY", "FINAL_ASSEMBLY", "FINISHING"};
+        
+        // Find which convergence target exists
+        Operation convergenceOp = null;
+        for (String targetName : convergenceTargets) {
+            for (Operation op : opMap.values()) {
+                if (op.getName().equalsIgnoreCase(targetName)) {
+                    convergenceOp = op;
+                    break;
+                }
+            }
+            if (convergenceOp != null) break;
+        }
+        
+        // If convergence point found, connect all merge nodes to it
+        if (convergenceOp != null) {
+            for (String mergeName : mergeNames) {
+                Operation mergeOp = null;
+                for (Operation op : opMap.values()) {
+                    if (op.getName().equals(mergeName)) {
+                        mergeOp = op;
+                        break;
+                    }
+                }
+                
+                if (mergeOp != null) {
+                    final Operation finalMergeOp = mergeOp;
+                    final Operation finalConvergenceOp = convergenceOp;
+                    
+                    boolean edgeExists = edges.stream()
+                        .anyMatch(e -> e.getFromOperationId().equals(finalMergeOp.getOperationId()) 
+                            && e.getToOperationId().equals(finalConvergenceOp.getOperationId()));
+                    
+                    if (!edgeExists) {
+                        edges.add(new WorkflowEdge(
+                            mergeOp.getOperationId(),
+                            convergenceOp.getOperationId(),
+                            mergeName,
+                            convergenceOp.getName(),
+                            "convergence"
+                        ));
+                        log.debug("[addHardcodedEdges] ✓ CONVERGENCE EDGE ADDED: {} -> {}", mergeName, convergenceOp.getName());
+                    }
+                }
+            }
+            
+            // Add sequential tail chain after convergence point
+            // Find convergence operation in steps list
+            int convergenceIndex = -1;
+            for (int i = 0; i < steps.size(); i++) {
+                Operation op = opMap.get(steps.get(i).getOperationId());
+                if (op != null && op.getOperationId().equals(convergenceOp.getOperationId())) {
+                    convergenceIndex = i;
+                    break;
+                }
+            }
+            
+            // Create sequential chain from convergence point to end
+            if (convergenceIndex >= 0) {
+                for (int i = convergenceIndex; i < steps.size() - 1; i++) {
+                    Operation currentOp = opMap.get(steps.get(i).getOperationId());
+                    Operation nextOp = opMap.get(steps.get(i + 1).getOperationId());
+                    
+                    if (currentOp != null && nextOp != null) {
+                        final Operation finalCurrentOp = currentOp;
+                        final Operation finalNextOp = nextOp;
+                        
+                        boolean edgeExists = edges.stream()
+                            .anyMatch(e -> e.getFromOperationId().equals(finalCurrentOp.getOperationId()) 
+                                && e.getToOperationId().equals(finalNextOp.getOperationId()));
+                        
+                        if (!edgeExists) {
+                            edges.add(new WorkflowEdge(
+                                currentOp.getOperationId(),
+                                nextOp.getOperationId(),
+                                currentOp.getName(),
+                                nextOp.getName(),
+                                "sequential_tail"
+                            ));
+                            log.debug("[addHardcodedEdges] ✓ SEQUENTIAL TAIL EDGE: {} -> {}", currentOp.getName(), nextOp.getName());
+                        }
+                    }
                 }
             }
         }

@@ -12,6 +12,7 @@ public class QrAssignmentRequest {
     private Integer trayQuantity;
     private Long supervisorId; // Added for enhanced workflow
     private String notes; // Added for enhanced workflow
+    private String orderNumber; // Added for order management - links bin to production order via order number
 
     // Getters and Setters
     public String getProcessPlanNumber() {
@@ -100,5 +101,13 @@ public class QrAssignmentRequest {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }

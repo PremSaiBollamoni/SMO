@@ -46,6 +46,12 @@ public class SupervisorService {
     @Autowired
     private EnhancedQrAssignmentService enhancedQrAssignmentService;
 
+    @Autowired
+    private com.cutm.smo.repositories.RoutingStepRepository routingStepRepository;
+
+    @Autowired
+    private com.cutm.smo.repositories.OperationRepository operationRepository;
+
     /**
      * Get all approved process plan numbers (routing IDs)
      */
@@ -129,6 +135,35 @@ public class SupervisorService {
         
         return labels.stream()
                 .sorted()
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Get operations for a specific routing/process plan
+     */
+    public List<Map<String, Object>> getOperationsForRouting(Long routingId) {
+        List<com.cutm.smo.models.RoutingStep> routingSteps = routingStepRepository.findByRoutingId(routingId);
+        
+        return routingSteps.stream()
+                .map(step -> {
+                    Map<String, Object> opData = new HashMap<>();
+                    opData.put("operationId", step.getOperationId());
+                    
+                    // Fetch operation details
+                    operationRepository.findById(step.getOperationId()).ifPresent(op -> {
+                        opData.put("name", op.getName());
+                        opData.put("sequence", op.getSequence());
+                        opData.put("stageGroup", step.getStageGroup());
+                    });
+                    
+                    return opData;
+                })
+                .filter(op -> op.containsKey("name"))
+                .sorted((a, b) -> {
+                    Integer seqA = (Integer) a.getOrDefault("sequence", 0);
+                    Integer seqB = (Integer) b.getOrDefault("sequence", 0);
+                    return seqA.compareTo(seqB);
+                })
                 .collect(Collectors.toList());
     }
 

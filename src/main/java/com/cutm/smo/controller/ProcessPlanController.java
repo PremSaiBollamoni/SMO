@@ -233,7 +233,12 @@ public class ProcessPlanController {
 
     @GetMapping("/approved")
     public List<ProcessPlanResponse> getApprovedProcessPlans(@RequestParam String actorEmpId) {
-        accessControlService.require(actorEmpId, "PP_VIEW_ALL");
+        // Allow both PP_VIEW_ALL and PP_APPROVE (GM needs this for order creation)
+        try {
+            accessControlService.require(actorEmpId, "PP_VIEW_ALL");
+        } catch (ResponseStatusException e) {
+            accessControlService.require(actorEmpId, "PP_APPROVE");
+        }
         return processPlanService.getApprovedProcessPlans();
     }
 

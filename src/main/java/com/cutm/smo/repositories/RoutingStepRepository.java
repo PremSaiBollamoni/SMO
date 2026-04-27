@@ -13,4 +13,6 @@ public interface RoutingStepRepository extends JpaRepository<RoutingStep, Long> 
     Long findMaxRoutingStepId();
 
     List<RoutingStep> findByRoutingIdOrderByRoutingStepIdAsc(Long routingId);
+    
+    List<RoutingStep> findByRoutingId(Long routingId);
 }
