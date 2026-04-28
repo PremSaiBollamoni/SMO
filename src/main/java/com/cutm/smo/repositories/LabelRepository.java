@@ -1,6 +1,6 @@
 package com.cutm.smo.repositories;
 
-import com.cutm.smo.models.Style;
+import com.cutm.smo.models.Label;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StyleRepository extends JpaRepository<Style, Long> {
+public interface LabelRepository extends JpaRepository<Label, Long> {
     
-    List<Style> findByStatus(String status);
+    List<Label> findByStatus(String status);
     
-    @Query("SELECT COALESCE(MAX(s.styleId), 0) + 1 FROM Style s")
-    Long getNextStyleId();
+    @Query("SELECT COALESCE(MAX(l.labelId), 0) + 1 FROM Label l")
+    Long getNextLabelId();
 }

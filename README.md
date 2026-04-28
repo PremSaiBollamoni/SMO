@@ -124,6 +124,18 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Non-blocking event logging (failures don't break main operations)
 - Historical event analysis and compliance reporting
 
+#### 13. **Master Data Management System** ⭐ NEW
+- Centralized management for foundational production data
+- **Styles** - Garment style definitions with concept, labels, and patterns
+- **GTG (Garment-to-Go)** - Style variants with size, color, sleeve type configurations
+- **Buttons** - Button type catalog with codes and names
+- **Labels** - Label inventory (woven, printed, care labels)
+- **Machines** - Machine registry with types and status tracking
+- **Threads** - Thread catalog with color codes
+- Full CRUD operations for all master data entities
+- Active/Inactive status management
+- Dropdown population for dependent entities (GTG uses Styles, Buttons, Threads)
+
 ---
 
 ## 🏛️ Architecture
@@ -326,6 +338,50 @@ GET    /api/qr_event                          # Get all QR events
 GET    /api/qr_event/{id}                     # Get specific QR event
 POST   /api/qr_event                          # Create QR event (internal use)
        # Event types: ASSIGNMENT, TRACKING, MERGE_SOURCE, MERGE_TARGET
+```
+
+#### Master Data Management ⭐ NEW
+```http
+# Styles
+GET    /api/gm/masterdata/styles              # Get all styles
+GET    /api/gm/masterdata/styles/active       # Get active styles
+POST   /api/gm/masterdata/styles              # Create style
+PUT    /api/gm/masterdata/styles/{id}         # Update style
+DELETE /api/gm/masterdata/styles/{id}         # Delete style
+
+# GTG (Style Variants)
+GET    /api/gm/masterdata/gtg                 # Get all GTGs
+GET    /api/gm/masterdata/gtg/active          # Get active GTGs
+POST   /api/gm/masterdata/gtg                 # Create GTG
+PUT    /api/gm/masterdata/gtg/{id}            # Update GTG
+DELETE /api/gm/masterdata/gtg/{id}            # Delete GTG
+
+# Buttons
+GET    /api/gm/masterdata/buttons             # Get all buttons
+GET    /api/gm/masterdata/buttons/active      # Get active buttons
+POST   /api/gm/masterdata/buttons             # Create button
+PUT    /api/gm/masterdata/buttons/{id}        # Update button
+DELETE /api/gm/masterdata/buttons/{id}        # Delete button
+
+# Labels
+GET    /api/gm/masterdata/labels              # Get all labels
+POST   /api/gm/masterdata/labels              # Create label
+PUT    /api/gm/masterdata/labels/{id}         # Update label
+DELETE /api/gm/masterdata/labels/{id}         # Delete label
+
+# Machines
+GET    /api/gm/masterdata/machines            # Get all machines
+GET    /api/gm/masterdata/machines/active     # Get active machines
+POST   /api/gm/masterdata/machines            # Create machine
+PUT    /api/gm/masterdata/machines/{id}       # Update machine
+DELETE /api/gm/masterdata/machines/{id}       # Delete machine
+
+# Threads
+GET    /api/gm/masterdata/threads             # Get all threads
+GET    /api/gm/masterdata/threads/active      # Get active threads
+POST   /api/gm/masterdata/threads             # Create thread
+PUT    /api/gm/masterdata/threads/{id}        # Update thread
+DELETE /api/gm/masterdata/threads/{id}        # Delete thread
 ```
 
 ### Response Format
