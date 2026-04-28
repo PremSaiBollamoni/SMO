@@ -83,6 +83,15 @@ public class SupervisorController {
     }
 
     /**
+     * Get bin current operation by tray QR code
+     */
+    @GetMapping("/bin-current-operation/{trayQr}")
+    public ResponseEntity<Map<String, Object>> getBinCurrentOperation(@PathVariable String trayQr) {
+        Map<String, Object> binInfo = supervisorService.getBinCurrentOperation(trayQr);
+        return ResponseEntity.ok(binInfo);
+    }
+
+    /**
      * Submit QR assignment
      */
     @PostMapping("/qr-assignment")

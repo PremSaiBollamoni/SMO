@@ -28,6 +28,12 @@ public class EnhancedQrAssignmentService {
     @Autowired
     private com.cutm.smo.repository.OrderRepository orderRepository;
 
+    @Autowired
+    private RoutingProgressionService routingProgressionService;
+
+    @Autowired
+    private QrEventService qrEventService;
+
     /**
      * Enhanced QR assignment with transaction-based workflow
      * Following the flowchart: Transaction → QR Check → Status Validation → Assignment
@@ -275,7 +281,22 @@ public class EnhancedQrAssignmentService {
         
         Bin savedBin = binRepository.save(bin);
 
-        // Step 3: Build success response
+        // Step 3: Initialize routing progression - set current operation to first operation
+        Long firstOperationId = routingProgressionService.initializeRoutingProgression(savedBin.getBinId(), routing.getRoutingId());
+
+        // Step 4: Log QR event for audit trail
+        qrEventService.logQrEvent(
+            request.getQrCode(),
+            "BIN",
+            savedBin.getBinId(),
+            "ASSIGNMENT",
+            firstOperationId,
+            null,
+            supervisorId,
+            null
+        );
+
+        // Step 5: Build success response
         response.put("success", true);
         response.put("message", "QR Code successfully assigned to Tray. Assignment Start Time recorded");
         response.put("binId", savedBin.getBinId());
@@ -285,6 +306,8 @@ public class EnhancedQrAssignmentService {
         response.put("routingId", routing.getRoutingId());
         response.put("styleVariantId", styleVariantId);
         response.put("trayQuantity", request.getTrayQuantity());
+        response.put("currentOperationId", firstOperationId);
+        response.put("firstOperationId", firstOperationId);
 
         return response;
     }

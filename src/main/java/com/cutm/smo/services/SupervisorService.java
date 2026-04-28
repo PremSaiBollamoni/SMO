@@ -168,6 +168,43 @@ public class SupervisorService {
     }
 
     /**
+     * Get bin current operation by tray QR code
+     * Returns bin info including current_operation_id and operation name
+     */
+    public Map<String, Object> getBinCurrentOperation(String trayQr) {
+        Map<String, Object> response = new HashMap<>();
+        
+        Optional<Bin> binOpt = binRepository.findByQrCode(trayQr);
+        
+        if (!binOpt.isPresent()) {
+            response.put("success", false);
+            response.put("message", "Bin not found for tray QR: " + trayQr);
+            return response;
+        }
+        
+        Bin bin = binOpt.get();
+        
+        response.put("success", true);
+        response.put("binId", bin.getBinId());
+        response.put("qrCode", bin.getQrCode());
+        response.put("currentOperationId", bin.getCurrentOperationId());
+        response.put("lastOperationId", bin.getLastOperationId());
+        response.put("currentRoutingId", bin.getCurrentRoutingId());
+        response.put("status", bin.getStatus());
+        response.put("currentStatus", bin.getCurrentStatus());
+        
+        // Fetch operation name if current operation exists
+        if (bin.getCurrentOperationId() != null) {
+            operationRepository.findById(bin.getCurrentOperationId()).ifPresent(op -> {
+                response.put("currentOperationName", op.getName());
+                response.put("currentOperationSequence", op.getSequence());
+            });
+        }
+        
+        return response;
+    }
+
+    /**
      * Submit QR assignment using enhanced workflow
      * Includes transaction management, status validation, and assignment history
      */

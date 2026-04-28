@@ -107,6 +107,23 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 - Node metrics endpoint with auto-refresh capabilities
 - Strategic monitoring for GM, floor-level monitoring for Supervisor
 
+#### 11. **Enhanced Workflow Progression System** ⭐ NEW
+- Automatic routing progression through operations
+- `current_operation_id` tracking in bin table
+- Sequential operation validation and advancement
+- Last operation detection for workflow completion
+- Bin status management (NEW → ASSIGNED → ACTIVE → COMPLETED → FREE)
+- WIP tracking with proper FK population (bin_id, operation_id)
+- Merge operation with source bin reset to FREE status
+
+#### 12. **QR Event Audit Trail** ⭐ NEW
+- Complete QR scanning event logging
+- Audit trail for all QR operations (ASSIGNMENT, TRACKING, MERGE)
+- Event types: ASSIGNMENT, TRACKING, MERGE_SOURCE, MERGE_TARGET
+- Captures: QR code, entity type, entity ID, operation ID, operator ID, timestamp
+- Non-blocking event logging (failures don't break main operations)
+- Historical event analysis and compliance reporting
+
 ---
 
 ## 🏛️ Architecture
@@ -145,11 +162,13 @@ SMO Backend is a robust, scalable Spring Boot application that powers a comprehe
 
 ### Database Schema Highlights
 
-- **18 Core Tables** - Normalized relational design
+- **20+ Core Tables** - Normalized relational design
 - **Foreign Key Constraints** - Referential integrity
 - **Indexed Columns** - Optimized query performance
 - **Audit Fields** - Timestamps for tracking
 - **Enum Types** - Type-safe operation classifications
+- **Workflow Progression** - current_operation_id tracking in bin table
+- **QR Event Logging** - Complete audit trail for all QR operations
 
 ---
 
@@ -301,6 +320,14 @@ GET    /api/processplan/node-metrics          # Real-time node metrics
        # Returns: WIP count, active jobs, daily completions
 ```
 
+#### QR Event Audit Trail ⭐ NEW
+```http
+GET    /api/qr_event                          # Get all QR events
+GET    /api/qr_event/{id}                     # Get specific QR event
+POST   /api/qr_event                          # Create QR event (internal use)
+       # Event types: ASSIGNMENT, TRACKING, MERGE_SOURCE, MERGE_TARGET
+```
+
 ### Response Format
 
 **Success Response:**
@@ -440,6 +467,11 @@ src/main/java/com/cutm/smo/
 │   ├── ProcessPlanService.java
 │   ├── SupervisorService.java
 │   ├── HrService.java
+│   ├── EnhancedQrAssignmentService.java
+│   ├── EnhancedTrackingService.java
+│   ├── EnhancedMergingService.java
+│   ├── RoutingProgressionService.java
+│   ├── QrEventService.java
 │   └── ...
 └── validation/          # Validators
     └── OperationValidator.java

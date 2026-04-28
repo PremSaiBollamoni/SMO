@@ -22,6 +22,9 @@ public class EnhancedMergingService {
     @Autowired
     private BinMergeHistoryRepository binMergeHistoryRepository;
 
+    @Autowired
+    private QrEventService qrEventService;
+
     /**
      * Enhanced merging with compatibility validation and multi-table updates
      */
@@ -188,9 +191,18 @@ public class EnhancedMergingService {
         targetBin.setStatus("MERGED"); // Update status to indicate it's been merged
         binRepository.save(targetBin);
 
-        // Step 3: Update source bin status
-        sourceBin.setStatus("MERGED_INTO_" + targetBin.getBinId());
-        sourceBin.setQty(0); // Set quantity to 0 as it's been transferred
+        // Step 3: Reset source bin to FREE state for reuse
+        sourceBin.setStatus("FREE");
+        sourceBin.setCurrentStatus("free");
+        sourceBin.setQty(0);
+        sourceBin.setCurrentRoutingId(null);
+        sourceBin.setCurrentStyleVariantId(null);
+        sourceBin.setCurrentOperationId(null);
+        sourceBin.setLastOperationId(null);
+        sourceBin.setAssignmentStartTime(null);
+        sourceBin.setAssignmentEndTime(null);
+        sourceBin.setLastAssignedBy(null);
+        sourceBin.setOrderId(null);
         binRepository.save(sourceBin);
 
         // Step 4: Insert into bin_merge_history
@@ -206,16 +218,42 @@ public class EnhancedMergingService {
         
         BinMergeHistory savedHistory = binMergeHistoryRepository.save(mergeHistory);
 
-        // Step 5: Build success response
+        // Step 5: Log QR events for audit trail (both source and target)
+        qrEventService.logQrEvent(
+            request.getTub2Qr(),
+            "MERGE",
+            savedHistory.getMergeId(),
+            "MERGE_SOURCE",
+            null,
+            null,
+            supervisorId,
+            null
+        );
+        
+        qrEventService.logQrEvent(
+            request.getTub1Qr(),
+            "MERGE",
+            savedHistory.getMergeId(),
+            "MERGE_TARGET",
+            null,
+            null,
+            supervisorId,
+            null
+        );
+
+        // Step 6: Build success response
         response.put("success", true);
-        response.put("message", "Tub 2 merged into Tub 1 successfully");
+        response.put("message", "Tub 2 merged into Tub 1 successfully. Source tub freed for reuse.");
         response.put("mergedBinId", targetBin.getBinId());
+        response.put("freedBinId", sourceBin.getBinId());
         response.put("totalQuantity", totalQty);
         response.put("qtyTransferred", sourceQty);
         response.put("tempMergeId", savedTempMerge.getMergeTempId());
         response.put("historyMergeId", savedHistory.getMergeId());
         response.put("mergedAt", savedTempMerge.getMergedAt());
         response.put("mergedBy", supervisorId);
+        response.put("sourceBinStatus", "FREE");
+        response.put("sourceBinReusable", true);
 
         return response;
     }

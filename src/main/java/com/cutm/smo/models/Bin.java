@@ -64,6 +64,9 @@ public class Bin {
     @Column(name = "last_operation_id")
     private Long lastOperationId;
 
+    @Column(name = "current_operation_id")
+    private Long currentOperationId;
+
     @Column(name = "order_id")
     private Long orderId;
 }

@@ -30,6 +30,12 @@ public class EnhancedTrackingService {
     @Autowired
     private TrackingValidationService validationService;
 
+    @Autowired
+    private RoutingProgressionService routingProgressionService;
+
+    @Autowired
+    private QrEventService qrEventService;
+
     /**
      * Process tracking request with two-phase workflow
      * Automatically detects assignment vs completion based on existing records
@@ -112,21 +118,59 @@ public class EnhancedTrackingService {
     private Map<String, Object> processCompletion(TrackingRequest request, TempActiveAssignment assignment, Long empId) {
         Map<String, Object> response = new HashMap<>();
 
+        // Get bin for validation and progression
+        Optional<Bin> binOpt = binRepository.findByQrCode(assignment.getTrayQr());
+        if (!binOpt.isPresent()) {
+            response.put("success", false);
+            response.put("message", "Bin not found for tray QR: " + assignment.getTrayQr());
+            return response;
+        }
+
+        Bin bin = binOpt.get();
+
+        // Validate operation can be completed (sequence check)
+        if (request.getOperationId() != null && bin.getCurrentOperationId() != null) {
+            Map<String, Object> validationResult = routingProgressionService.validateOperationCompletion(
+                bin.getBinId(), 
+                request.getOperationId()
+            );
+            
+            if (!(Boolean) validationResult.getOrDefault("valid", false)) {
+                response.put("success", false);
+                response.put("message", validationResult.get("message"));
+                response.put("validationError", true);
+                return response;
+            }
+        }
+
         // Update assignment status to completed
         assignment.setStatus("completed");
         tempActiveAssignmentRepository.save(assignment);
 
-        // Update bin.lastOperationId so node metrics can track which operation this bin last completed
-        if (request.getOperationId() != null) {
-            binRepository.findByQrCode(assignment.getTrayQr()).ifPresent(bin -> {
-                bin.setLastOperationId(request.getOperationId());
-                binRepository.save(bin);
-            });
-        }
-
-        // Move to main wiptracking table
-        WipTracking wipTracking = createWipTrackingRecord(assignment, request);
+        // Move to main wiptracking table with proper FK population
+        WipTracking wipTracking = createWipTrackingRecord(assignment, request, bin);
         wipTrackingRepository.save(wipTracking);
+
+        // Log QR event for audit trail
+        qrEventService.logQrEvent(
+            assignment.getTrayQr(),
+            "WIP",
+            wipTracking.getWipId(),
+            "TRACKING",
+            request.getOperationId(),
+            null, // machineId not available in current model
+            empId,
+            null
+        );
+
+        // Advance bin to next operation in routing sequence
+        Map<String, Object> progressionResult = null;
+        if (request.getOperationId() != null) {
+            progressionResult = routingProgressionService.advanceToNextOperation(
+                bin.getBinId(), 
+                request.getOperationId()
+            );
+        }
 
         // Log the completion event
         logEvent(request, empId, "COMPLETE", "Job completed and moved to main tables");
@@ -134,21 +178,42 @@ public class EnhancedTrackingService {
         // Clean up temp assignment (remove completed record)
         tempActiveAssignmentRepository.delete(assignment);
 
+        // Build response
         response.put("success", true);
         response.put("flowType", "COMPLETION");
-        response.put("message", "Job Completed & moved to main tables");
         response.put("wipTrackingId", wipTracking.getWipId());
         response.put("machineQr", request.getMachineQr());
         response.put("employeeQr", request.getEmployeeQr());
         response.put("trayQr", request.getTrayQr());
 
+        // Add progression details
+        if (progressionResult != null) {
+            boolean workflowComplete = (Boolean) progressionResult.getOrDefault("workflowComplete", false);
+            
+            if (workflowComplete) {
+                response.put("message", "Job Completed - Workflow Finished! All operations done.");
+                response.put("workflowComplete", true);
+                response.put("completedAt", progressionResult.get("completedAt"));
+            } else {
+                response.put("message", "Job Completed & Advanced to Next Operation");
+                response.put("workflowComplete", false);
+                response.put("nextOperationId", progressionResult.get("nextOperationId"));
+            }
+            
+            response.put("currentOperationId", progressionResult.get("currentOperationId"));
+            response.put("lastOperationId", progressionResult.get("lastOperationId"));
+            response.put("binStatus", progressionResult.get("status"));
+        } else {
+            response.put("message", "Job Completed & moved to main tables");
+        }
+
         return response;
     }
 
     /**
-     * Create WipTracking record from completed assignment
+     * Create WipTracking record from completed assignment with proper FK population
      */
-    private WipTracking createWipTrackingRecord(TempActiveAssignment assignment, TrackingRequest request) {
+    private WipTracking createWipTrackingRecord(TempActiveAssignment assignment, TrackingRequest request, Bin bin) {
         WipTracking tracking = new WipTracking();
         
         // Generate new WIP ID
@@ -160,8 +225,18 @@ public class EnhancedTrackingService {
         tracking.setEndTime(LocalDateTime.now());
         tracking.setStatus(request.getStatus());
         
-        // Note: In production, you would parse machine_qr and tray_qr to get actual IDs
-        // For now, we'll leave these fields null or implement parsing logic as needed
+        // FIX: Populate bin_id from resolved bin
+        tracking.setBinId(bin.getBinId());
+        
+        // FIX: Populate operation_id from request
+        if (request.getOperationId() != null) {
+            tracking.setOperationId(request.getOperationId());
+        }
+        
+        // Set quantity from bin
+        if (bin.getQty() != null) {
+            tracking.setQty(bin.getQty());
+        }
         
         return tracking;
     }
